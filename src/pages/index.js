@@ -1,19 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import Home from './home/index'
 
 class App extends React.Component{
     constructor() {
-        super();
+        super()
     }
     render() {
         return (
-          <div>
-              <h3>cuckoo</h3>
-          </div>
+            <Home />
         )
     }
-};
+}
 
-const app = document.createElement('div');
-document.body.appendChild(app);
-ReactDOM.render(<App />, app);
+const app = document.createElement('div')
+document.body.appendChild(app)
+ReactDOM.render(<App />, app)

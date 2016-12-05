@@ -25,7 +25,7 @@ module.exports = {
       {
         test: /\.css$/,
         loaders: ['style', 'css'],
-        include: APP_PATH
+        exclude: /node_modules/,
       },
       {
         test: /\.(png|jpg)$/,
@@ -34,16 +34,11 @@ module.exports = {
       {
         test: /\.jsx?$/,
         loader: 'babel',
-        include: APP_PATH,
+        exclude: /node_modules/,
         query: {
           presets: ['es2015', 'react']
         }
       },
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015']
-      }
     ]
   },
   resolve: {
@@ -52,7 +47,8 @@ module.exports = {
   devtool: 'eval-source-map',
   plugins: [
     new HtmlwebpackPlugin({
-      title: 'Cuckoo'
+      title: 'Cuckoo',
+      template: 'template.html'
     })
   ]
 };
