@@ -1,6 +1,6 @@
 # Cuckoo
 
-A online box-office reporting service
+电影票房分析工具
 
 ## Running
 
@@ -18,5 +18,3 @@ npm start
 ## License
 
 MIT
-
-### [中文指南](README_CN.md)
