@@ -38,6 +38,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "components": "^0.1.0",
     "eslint": "^3.11.1",
     "eslint-plugin-jsx-a11y": "^3.0.1",
