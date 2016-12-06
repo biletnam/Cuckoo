@@ -11,7 +11,7 @@ npm install
 npm start
 ```
 
-Now Cuckoo can using [yarn](https://github.com/yarnpkg/yarn) Running
+Now Cuckoo can use [yarn](https://github.com/yarnpkg/yarn) Running
 
 ``` bash
 git clone https://github.com/xiaoyuhen/Cuckoo.git
