@@ -31,7 +31,8 @@ yarn start
 
 * [eslint-config-aribnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 * [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
-* 
+
+
 ## License
 
 MIT

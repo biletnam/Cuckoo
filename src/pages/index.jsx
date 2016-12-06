@@ -1,17 +1,13 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Router, Route, hashHistory } from 'react-router';
 
 import Home from './home/index';
+import NotFound from './notfound/index';
 
-
-class App extends React.Component {
-  render() {
-    return (
-      <Home />
-    );
-  }
-}
-
-const app = document.getElementById('app');
-document.body.appendChild(app);
-ReactDOM.render(<App />, app);
+render((
+  <Router history={hashHistory}>
+    <Route path="/" component={Home} />
+    <Route path="*" component={NotFound} />
+  </Router>
+), document.getElementById('app'));
