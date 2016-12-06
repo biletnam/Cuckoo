@@ -1,6 +1,6 @@
 # Cuckoo
 
-A online box-office reporting service
+A online box-office reporting service APP
 
 ## Running
 
@@ -11,7 +11,7 @@ npm install
 npm start
 ```
 
-### Code Style
+## Code Style
 
 * [eslint-config-aribnb](https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb)
 

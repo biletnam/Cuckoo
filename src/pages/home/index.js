@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Head from '../../components/Head/index.js'
+import Head from 'components/Head/index'
 
 export default class Home extends React.Component {
     constructor(...args) {

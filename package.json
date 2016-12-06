@@ -12,7 +12,7 @@
     "url": "git+https://github.com/xiaoyuhen/Cuckoo.git"
   },
   "author": "xiaoyuhen1994@gmail.com",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/xiaoyuhen/Cuckoo/issues"
   },

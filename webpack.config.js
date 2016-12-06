@@ -42,7 +42,15 @@ module.exports = {
     ]
   },
   resolve: {
-      extensions: ['', '.js', '.jsx']
+      extensions: ['', '.js', '.jsx'],
+      root: path.resolve(__dirname, 'src'),
+      alias: {
+        "css": "css",
+        "components": "components",
+        "utils": "utils",
+        "assets": "assets",
+        "app": "app",
+      }
   },
   devtool: 'eval-source-map',
   plugins: [
