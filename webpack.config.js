@@ -53,6 +53,9 @@ module.exports = {
       }
   },
   devtool: 'eval-source-map',
+  eslint: {
+    failOnWarning: true
+  },
   plugins: [
     new HtmlwebpackPlugin({
       title: 'Cuckoo',
