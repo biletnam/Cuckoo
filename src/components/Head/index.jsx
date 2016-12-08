@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './head.css';
+import './head.scss';
 
 class Head extends React.Component {
   constructor() {

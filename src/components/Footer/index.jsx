@@ -9,7 +9,7 @@ import production_off from 'assets/icon/production_off.png';
 import news_on from 'assets/icon/news_on.png';
 import news_off from 'assets/icon/news_off.png';
 
-import './footer.css';
+import './footer.scss';
 
 const content = [{
   text: '电影票房',

@@ -1,1 +1,2 @@
-// export const xx = xx
+// home
+export const RECIEVE_DATA = 'RECIEVE_DATA';

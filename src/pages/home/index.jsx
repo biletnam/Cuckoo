@@ -3,24 +3,26 @@ import React from 'react';
 import Head from 'components/Head/index';
 import Footer from 'components/Footer/index';
 
-const TYPE = {
-  boxoffice: 0,
-  production: 1,
-  news: 2,
-  calendar: 3,
-};
+import RoomSelector from 'app/selectors/home'
+
+import connect from 'utils/connect';
+import { FooterType } from 'utils/constant';
 
 class Home extends React.Component {
+  constructor(props) {
+    super(...props);
+  }
+  componentWillMount() {
+    this.props.actions.fetchData();
+  }
   render() {
     return (
       <div className="home">
-        <div className="home-content">
-          <Head title="cuckoo" />
-        </div>
-        <Footer type={TYPE.boxoffice} />
+        <Head title="cuckoo" />
+        <Footer type={FooterType.boxoffice} />
       </div>
     );
   }
 }
 
-export default Home;
+export default connect(Home, RoomSelector);
