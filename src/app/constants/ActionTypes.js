@@ -1,2 +1,2 @@
 // home
-export const RECIEVE_DATA = 'RECIEVE_DATA';
+export const GET_MOVIE_REVENUES = 'GET_MOVIE_REVENUES';

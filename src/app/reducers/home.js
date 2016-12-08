@@ -7,7 +7,7 @@ const initialState = {
 
 const handler = {};
 
-handler[types.RECIEVE_DATA] = (state, action) => {
+handler[types.GET_MOVIE_REVENUES] = (state, action) => {
   return Object.assign({}, state, {
     data: action.data,
   });

@@ -47,4 +47,4 @@ Footer.propTypes = {
   type: React.PropTypes.number.isRequired,
 };
 
-export default Footer
+export default Footer;

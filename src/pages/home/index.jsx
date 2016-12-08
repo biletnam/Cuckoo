@@ -3,7 +3,7 @@ import React from 'react';
 import Head from 'components/Head/index';
 import Footer from 'components/Footer/index';
 
-import RoomSelector from 'app/selectors/home'
+import RoomSelector from 'app/selectors/home';
 
 import connect from 'utils/connect';
 import { FooterType } from 'utils/constant';
@@ -13,7 +13,7 @@ class Home extends React.Component {
     super(...props);
   }
   componentWillMount() {
-    this.props.actions.fetchData();
+    this.props.actions.GetMovieRevenues();
   }
   render() {
     return (

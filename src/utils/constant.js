@@ -3,4 +3,4 @@ export const FooterType = {
   production: 1,
   news: 2,
   calendar: 3,
-}
+};

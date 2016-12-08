@@ -14,7 +14,15 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
     inline: true,
-    progress: true,
+    port: 8080,
+    stats: { colors: true },
+    proxy: {
+      '/api': {
+        target: 'http://api.pro.mtime.cn',
+        pathRewrite: {'^/api' : ''},
+        changeOrigin: true,
+      },
+    },
   },
   module: {
     loaders: [
