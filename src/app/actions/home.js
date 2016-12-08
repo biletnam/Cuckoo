@@ -5,7 +5,7 @@ import { API } from 'utils/api';
 function receiveMovieRevenuesData(resp) {
   return {
     type: types.GET_MOVIE_REVENUES,
-    ...resp,
+    boxoffice: resp,
   };
 }
 
