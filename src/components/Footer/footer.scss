@@ -12,15 +12,66 @@
 		flex: 1;
 		text-align: center;
 		color: #999;
-
-		.tab-icon {
+		i {
 			height: 20px;
-			margin-top: 6px;
+	    width: 20px;
+	    display: block;
+	    background-size: contain !important;
+	    margin: 6px auto;
+		}
+		.icon-boxoffice {
+			background: url('~assets/icon/boxoffice_off.png') no-repeat;
+		}
+		.icon-production {
+			background: url('~assets/icon/production_off.png') no-repeat;
+		}
+		.icon-news {
+			background: url('~assets/icon/news_off.png') no-repeat;
+		}
+		.icon-calendar {
+			background: url('~assets/icon/calendar_off.png') no-repeat;
 		}
 		span {
 			font-size: 10px;
 			display: block;
-			margin-top: 4px
+			margin-top: 1px
 		}
 	}
+}
+
+.boxoffice {
+  .span-boxoffice {
+    color: #4DA3D8;
+  }
+  .icon-boxoffice {
+    background: url('~assets/icon/boxoffice_on.png') no-repeat !important;
+  }
+}
+
+.production {
+  .span-production {
+    color: #4DA3D8;
+  }
+  .icon-production {
+    background: url('~assets/icon/production_on.png') no-repeat !important;
+  }
+}
+
+.news{
+  .span-news{
+    color: #4DA3D8;
+  }
+  .icon-news {
+    background: url('~assets/icon/news_on.png') no-repeat !important;
+  }
+}
+
+
+.calendar {
+  .span-calendar {
+    color: #4DA3D8;
+  }
+  .icon-calendar {
+    background: url('~assets/icon/calendar_on.png') no-repeat !important;
+  }
 }

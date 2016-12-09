@@ -1,6 +1,6 @@
 export const FooterType = {
-  boxoffice: 0,
-  production: 1,
-  news: 2,
-  calendar: 3,
+  0: 'boxoffice',
+  1: 'production',
+  2: 'news',
+  3: 'calendar',
 };
