@@ -1,0 +1,44 @@
+.home {
+
+	.type {
+		height: 86px;
+		padding-top: 40px;
+		position: absolute;
+		width: 100%;
+		font-size: 14px;
+		color: #8D919C;
+
+		ul {
+			display: flex;
+			padding-top: 17px;
+			background: white;
+			border-bottom: 1px solid #EDEDED;
+			li {
+				flex: 1;
+				text-align: center;
+				i {
+					display: block;
+					height: 30px;
+					background-size: contain !important;
+					width: 30px;
+					margin: 0 auto;
+				}
+				p {
+					padding: 12px 0 20px 0;
+				}
+				.film-screening {
+					background: url('~assets/icon/film_screening.png') no-repeat;
+				}
+				.trend {
+					background: url('~assets/icon/trend.png') no-repeat;
+				}
+				.vs {
+					background: url('~assets/icon/vs.png') no-repeat;
+				}
+				.follow {
+					background: url('~assets/icon/follow.png') no-repeat;
+				}
+			}
+		}
+	}
+}

@@ -1,12 +1,16 @@
 import React from 'react';
 
-import Head from 'components/Head/index';
-import Footer from 'components/Footer/index';
+import connect from 'utils/connect';
+import { FooterType } from 'utils/constant';
 
 import RoomSelector from 'app/selectors/home';
 
-import connect from 'utils/connect';
-import { FooterType } from 'utils/constant';
+import Head from 'components/Head/index';
+import Footer from 'components/Footer/index';
+
+import Type from './Type'
+
+import './index.scss'
 
 class Home extends React.Component {
   constructor(props) {
@@ -19,7 +23,8 @@ class Home extends React.Component {
     return (
       <div className="home">
         <Head title="cuckoo" />
-        <Footer type={FooterType.boxoffice} />
+        <Type />
+        <Footer type={FooterType[0]} />
       </div>
     );
   }

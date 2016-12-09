@@ -9,6 +9,7 @@ body {
 }
 *, li, ol, ul {
 	border: none;
+	list-style: none;
 }
 * {
 	margin: 0;
