@@ -41,4 +41,66 @@
 			}
 		}
 	}
+
+	.box-office {
+		position: absolute;
+    top: 136px;
+    height: 80px;
+    width: 100%;
+
+    .box-office-title {
+	    text-align: center;
+	    width: 100%;
+	    color: #545C69;
+	    margin: 16px 0;
+	    font-size: 16px;
+    }
+
+    .box-office-date {
+	    display: flex;
+	    text-align: center;
+	    font-size: 12px;
+	    color: #90929f;
+
+	    div {
+	    	flex: 1;
+	    }
+    }
+
+    .box-office-switchtype {
+    	display: flex;
+    	text-align: center;
+    	margin: 0 15px;
+
+    	li {
+    		flex: 1;
+    		height: 30px;
+    		border: {
+    			top: 1px solid #9d9d9d;
+    			bottom: 1px solid #9d9d9d;
+    		}
+    	}
+
+    	.switchtype-movie {
+    		border: {
+    			left: 1px solid #9d9d9d;
+    			bottom-left-radius: 15px;
+    			top-left-radius: 15px
+    		}
+    	}
+    	.switchtype-cinema {
+    		border: {
+    			left: 1px solid #9d9d9d;
+    			right: 1px solid #9d9d9d;
+    		}
+    	}
+    	.switchtype-cinema-line {
+    		border: {
+    			right: 1px solid #9d9d9d;
+    			bottom-right-radius: 15px;
+    			top-right-radius: 15px;
+    		}
+    	}
+    }
+	}
 }

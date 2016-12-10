@@ -8,9 +8,10 @@ import RoomSelector from 'app/selectors/home';
 import Head from 'components/Head/index';
 import Footer from 'components/Footer/index';
 
-import Type from './Type'
+import Type from './Type';
+import Boxoffice from './Boxoffice';
 
-import './index.scss'
+import './index.scss';
 
 class Home extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Home extends React.Component {
       <div className="home">
         <Head title="cuckoo" />
         <Type />
+        <Boxoffice />
         <Footer type={FooterType[0]} />
       </div>
     );

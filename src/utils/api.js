@@ -1,3 +1,5 @@
 export const API = {
-  oneDayMovieRevenues: '/api/GetOneDayMovieRevenues.api',
+  oneDayMovieRevenues: '/GetOneDayMovieRevenues.api',
+  oneDayCinemaRevenues: '/GetDailyTheaterRevenueRanking.api',
+  oneDayCinemaLineRevenues: '/GetDailyCinemaLineRevenueRanking.api',
 };
