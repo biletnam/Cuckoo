@@ -2,6 +2,18 @@ import React from 'react';
 
 // import BoxofficeList from './BoxofficeList';
 
+import ReactEcharts from 'echarts-for-react';
+
+import getOption from 'utils/chart_pie';
+
+const COLORS = [
+  '#FF5937',
+  '#FDAF29',
+  '#1985CD',
+  '#4D5E70',
+];
+
+
 class Boxoffice extends React.Component {
   constructor(props) {
     super(...props);
@@ -9,6 +21,14 @@ class Boxoffice extends React.Component {
   render() {
     const { upd, data } = this.props;
     const sortData = data.slice(0, 3);
+    const pieData = [];
+    let aa = 0;
+    sortData.forEach((item) => {
+      pieData.push(item.sCntRate);
+      aa += item.sCntRate;
+    });
+    pieData.push(1 - aa);
+    const option = getOption(pieData, COLORS);
     return (
       <div className="box-office">
         <div className="box-office-title">
@@ -36,7 +56,12 @@ class Boxoffice extends React.Component {
           <li className="switchtype-cinema-line">院线排行</li>
         </ul>
         <div className="box-office-data">
-          <div>
+          <div className="chart-data-warapper">
+            <ReactEcharts
+              className="chart-boxofice-data"
+              style={{ height: '170px' }}
+              option={option}
+            />
             <span>{`北京时间${upd}更新`}</span>
           </div>
           <ul className="data-text">

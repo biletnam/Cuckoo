@@ -50,6 +50,9 @@ yarn start
 * [fecha](https://github.com/taylorhakes/fecha):Javascript Date formatting and parsing
 * [eslint](https://github.com/eslint/eslint):A fully pluggable tool for identifying and reporting on patterns in JavaScript. 
 * [sass](http://sass-lang.com/):CSS with superpowers
+* [request](https://github.com/request/request):Simplified HTTP request client.
+* [echarts](https://github.com/ecomfe/echarts):A powerful, interactive charting and visualization library for browser
+* [echarts-for-react](https://github.com/hustcc/echarts-for-react):baidu Echarts(v3.0) components for React wrapper
 
 
 ## License
