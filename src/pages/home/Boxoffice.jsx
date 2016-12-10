@@ -6,9 +6,9 @@ class Boxoffice extends React.Component {
   constructor(props) {
     super(...props);
   }
-  componentWillMount() {
-  }
   render() {
+    const { upd, data } = this.props;
+    const sortData = data.slice(0, 3);
     return (
       <div className="box-office">
         <div className="box-office-title">
@@ -35,10 +35,39 @@ class Boxoffice extends React.Component {
           <li className="switchtype-cinema">影院排行</li>
           <li className="switchtype-cinema-line">院线排行</li>
         </ul>
+        <div className="box-office-data">
+          <div>
+            <span>{`北京时间${upd}更新`}</span>
+          </div>
+          <ul className="data-text">
+            {
+              sortData.map((item, i) =>
+                <li key={i}>
+                  <i />
+                  <p>{item.mTitle}</p>
+                  <p>
+                    <span className={`box-office-percent-${i} box-office-percent`}>{`${(item.sCntRate * 100).toFixed(2)}%`}</span>
+                    <span>{item.sCnt / 10}万</span>
+                  </p>
+                </li>
+              )
+            }
+            <li>
+              <i />
+              <p>其他影片</p>
+            </li>
+          </ul>
+        </div>
       </div>
     );
   }
 }
+
+
+Boxoffice.propTypes = {
+  upd: React.PropTypes.string.isRequired,
+  data: React.PropTypes.array.isRequired,
+};
 
 export default Boxoffice;
 

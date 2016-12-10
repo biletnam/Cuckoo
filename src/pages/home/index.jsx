@@ -21,11 +21,19 @@ class Home extends React.Component {
     this.props.actions.GetMovieRevenues();
   }
   render() {
+    const { boxoffice } = this.props;
+    const { upd, data } = boxoffice;
+    if (!upd) {
+      return null
+    }
     return (
       <div className="home">
         <Head title="cuckoo" />
         <Type />
-        <Boxoffice />
+        <Boxoffice
+          upd={upd}
+          data={data}
+        />
         <Footer type={FooterType[0]} />
       </div>
     );
