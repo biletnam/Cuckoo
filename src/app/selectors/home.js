@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect';
 
-const getHome = state => state.home;
+const getBoxoffice = state => state.boxoffice;
 
 export default createSelector(
-  getHome,
-  (home) => {
+  getBoxoffice,
+  (boxoffice) => {
     return {
-      home,
+      boxoffice,
     };
   },
 );
