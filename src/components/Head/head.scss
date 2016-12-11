@@ -2,7 +2,8 @@
 	height: 40px;
 	width: 100%;
 	background: #1587cd;
-	position: absolute;
+	position: fixed;
+  z-index: 1000;
 	align-items: center;
 
   .head-title {

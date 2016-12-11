@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FooterType } from 'utils/constant';
+import { FOOTER_TYPE } from 'utils/constant';
 
 import './footer.scss';
 
@@ -24,8 +24,8 @@ const Footer = (props) => {
     <div className={`footer ${type}`}>
       {content.map((item, i) =>
         <div type={item.type} key={i} className="tab" >
-          <i className={`icon-${FooterType[i]} icon`} />
-          <span className={`span-${FooterType[i]}`}>{item.text}</span>
+          <i className={`icon-${FOOTER_TYPE[i]} icon`} />
+          <span className={`span-${FOOTER_TYPE[i]}`}>{item.text}</span>
         </div>
        )}
     </div>

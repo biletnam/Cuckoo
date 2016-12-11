@@ -1,9 +1,20 @@
 function getOption(
   data,
   color,
+  text,
 ) {
   return {
     color,
+    title: {
+      show: true,
+      text,
+      left: 'center',
+      top: 'center',
+      textStyle: {
+        color: '#585E6C',
+        fontSize: 16,
+      },
+    },
     series: [
       {
         type: 'pie',
@@ -11,24 +22,20 @@ function getOption(
         center: ['50%', '50%'],
         avoidLabelOverlap: false,
         legendHoverLink: false,
-        // label: {
-        //   normal: {
-        //     show: true,
-        //     position: 'position',
-        //     formatter: '{b} {c}%',
-        //     lineText: {
-        //       fontSize: 10,
-        //     },
-        //   },
-        //   emphasis: {
-        //     show: true,
-        //     position: 'center',
-        //     textStyle: {
-        //       fontSize: '13',
-        //       fontWeight: 'normal',
-        //     },
-        //   },
-        // },
+        hoverAnimation: false,
+        label: {
+          normal: {
+            show: true,
+            position: 'inner',
+            formatter: function(params) {
+              const percent = `${params.percent}%`;
+              return percent;
+            },
+            textStyle: {
+              fontSize: 8,
+            },
+          },
+        },
         labelLine: {
           normal: {
             show: false,

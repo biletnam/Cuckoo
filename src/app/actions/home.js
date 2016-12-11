@@ -13,7 +13,7 @@ export function GetMovieRevenues() {
   return (dispatch) => {
     const url = API.oneDayMovieRevenues;
     const data = {
-      targetDate: 20161208,
+      targetDate: 20161211,
     };
     return request.GET(url, data)
       .then(function(resp) {

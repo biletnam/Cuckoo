@@ -1,5 +1,6 @@
-.home {
+@charset "utf-8";
 
+.home {
 	.type {
 		height: 86px;
 		padding-top: 40px;
@@ -104,8 +105,12 @@
     		}
     	}
     }
-
-    .box-office-data {
+	}
+	.box-office-data {
+		position: absolute;
+		top: 246px;
+		width: 100%;
+    .box-office-chart {
 	    margin-top: 25px;
 	    display: flex;
 
@@ -129,12 +134,105 @@
 
 				p {
 					margin-bottom: 10px;
-
+					.box-office-percent-0 {
+						color: #FF5937;
+					}
+					.box-office-percent-1 {
+						color: #FDAF29;
+					}
+					.box-office-percent-2 {
+						color: #1985CD;
+					}
 					.box-office-percent {
 						margin-right: 10px;
 					}
 				}
+	  	}
+  	}
+  	.box-office-list {
+  		.box-office-overview {
+				display: flex;
+		    text-align: center;
+		    height: 70px;
+		    align-items: center;
+		    border: {
+		    	bottom: 1px solid #F2F2F2;
+		    	top: 1px solid #F2F2F2;
+		    }
+
+		    li {
+		    	flex: 1;
+		    	p {
+		    		&:first-child {
+			    		font-size: nth(16px, 1);
+			    		color: #565D67;
+		    		}
+		    		&:last-child {
+		    			margin-top: 13px;
+			    		font-size: nth(12px, 1);
+			    		color: #B1B2B7;
+		    		}
+		    	}
+		    }
+  		}
+  		.table-list {
+			  display: table;
+		    width: 100%;
+
+		    .table-list-title {
+		    	height: 50px;
+		    	font-size: 11px;
+
+		    	span {
+		    		display: table-cell;
+				    box-sizing: border-box;
+				    text-align: center;
+				    vertical-align: middle;
+				    border-bottom: 1px solid #ECECEC;
+				    flex: 1;
+				    color: #87919D;
+		    	}
+		    }
+		    li {
+					display: table-row;
+			    height: 57px;
+			    font-size: 14px;
+			    position: relative;
+
+			    div {
+						display: table-cell;
+				    box-sizing: border-box;
+				    text-align: center;
+				    vertical-align: middle;
+				    border-bottom: 1px solid #ECECEC;
+				    flex: 1;
+				    color: #5A636A;
+				    &:first-child {
+				    	width: 110px;
+				    }
+				    span {
+				    	display: block;
+				    	&:last-child {
+				    		font-size: 11px;
+				    		color: #7F828B;
+				    		margin-top: 7px;
+				    	}
+				    }
+			    }
+		    }
+  		}
+  	}
+  	.box-office-footer {
+	  	margin-bottom: 48px;
+	    background: #F5F5F5;
+	    padding-bottom: 16px;
+	    color: #7F828B;
+	    p {
+			  font-size: 11px;
+		    text-align: center;
+		    padding-top: 10px;
+		    line-height: 12px;
 	    }
-    }
+  	}
 	}
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import connect from 'utils/connect';
-import { FooterType } from 'utils/constant';
+import { FOOTER_TYPE } from 'utils/constant';
 
 import RoomSelector from 'app/selectors/home';
 
@@ -9,7 +9,8 @@ import Head from 'components/Head/index';
 import Footer from 'components/Footer/index';
 
 import Type from './Type';
-import Boxoffice from './Boxoffice';
+import BoxofficeType from './BoxofficeType';
+import BoxofficeList from './BoxofficeList';
 
 import './index.scss';
 
@@ -22,19 +23,27 @@ class Home extends React.Component {
   }
   render() {
     const { boxoffice } = this.props;
-    const { upd, data } = boxoffice;
+    const { upd, data, sumRev, sumSCnt, aveSeat, newMovieCnt } = boxoffice;
     if (!upd) {
-      return null
+      return null;
     }
     return (
       <div className="home">
-        <Head title="cuckoo" />
-        <Type />
-        <Boxoffice
-          upd={upd}
-          data={data}
-        />
-        <Footer type={FooterType[0]} />
+        <Head title="Cuckoo" />
+        <div className="home-scroll">
+          <Type />
+          <BoxofficeType
+          />
+          <BoxofficeList
+            upd={upd}
+            data={data}
+            sumSCnt={sumSCnt}
+            aveSeat={aveSeat}
+            sumRev={sumRev}
+            newMovieCnt={newMovieCnt}
+          />
+        </div>
+        <Footer type={FOOTER_TYPE[0]} />
       </div>
     );
   }
