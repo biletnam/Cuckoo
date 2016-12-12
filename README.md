@@ -1,6 +1,6 @@
 # Cuckoo
 
-A online box-office reporting service APP
+An online box-office reporting service APP
 
 ## Running
 
