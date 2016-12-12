@@ -5,8 +5,8 @@ import { FOOTER_TYPE } from 'utils/constant';
 
 import RoomSelector from 'app/selectors/home';
 
-import Head from 'components/Head/index';
-import Footer from 'components/Footer/index';
+import Head from 'components/Head';
+import Footer from 'components/Footer';
 
 import Type from './Type';
 import BoxofficeType from './BoxofficeType';
@@ -32,8 +32,7 @@ class Home extends React.Component {
         <Head title="Cuckoo" />
         <div className="home-scroll">
           <Type />
-          <BoxofficeType
-          />
+          <BoxofficeType />
           <BoxofficeList
             upd={upd}
             data={data}
