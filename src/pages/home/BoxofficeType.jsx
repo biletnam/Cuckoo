@@ -1,7 +1,10 @@
 import React from 'react';
 
+import fecha from 'utils/fecha';
+
 class BoxofficeType extends React.Component {
   render() {
+    const today = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
     return (
       <div className="box-office">
         <div className="box-office-title">
@@ -15,7 +18,7 @@ class BoxofficeType extends React.Component {
             <span>前一日</span>
           </div>
           <div>
-            <span>2016年12月05日</span>
+            <span>{today}</span>
             <i />
           </div>
           <div>

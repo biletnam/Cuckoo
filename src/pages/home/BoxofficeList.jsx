@@ -11,22 +11,16 @@ class BoxofficeList extends React.Component {
   }
 
   render() {
-    const { upd, data, sumSCnt, aveSeat, sumRev, newMovieCnt } = this.props;
-    const aveTicketPrice = (sumRev / sumSCnt / aveSeat / 100).toFixed(2);
-    let todayBoxOffice = (sumRev / 1000000).toFixed(0)
-    if (todayBoxOffice.length < 5) {
-      todayBoxOffice = `${todayBoxOffice}万`;
-    } else {
-      todayBoxOffice = `${(todayBoxOffice / 10000).toFixed(2)}亿`;
-    }
-    const sortData = data.slice(0, 3);
-    const pieData = [];
-    let aa = 0;
-    sortData.forEach((item) => {
-      pieData.push(item.revRate);
-      aa += item.revRate;
-    });
-    pieData.push(1 - aa);
+    const {
+      aveTicketPrice,
+      data,
+      newMovieCnt,
+      pieData,
+      sortData,
+      todayBoxOffice,
+      sumSCntS,
+      upd,
+    } = this.props.boxoffice;
     const option = getOption(pieData, PIE_COLORS, todayBoxOffice);
     return (
       <div className="box-office-data">
@@ -46,8 +40,8 @@ class BoxofficeList extends React.Component {
                   <i />
                   <p>{item.mTitle}</p>
                   <p>
-                    <span className={`box-office-percent-${i} box-office-percent`}>{`${(item.revRate * 100).toFixed(2)}%`}</span>
-                    <span>{(item.rev / 1000000).toFixed(2)}万</span>
+                    <span className={`box-office-percent-${i} box-office-percent`}>{`${item.revRate}%`}</span>
+                    <span>{item.rev}</span>
                   </p>
                 </li>
               )
@@ -61,7 +55,7 @@ class BoxofficeList extends React.Component {
         <div className="box-office-list">
           <ul className="box-office-overview">
             <li>
-              <p>{`${(sumSCnt / 10000).toFixed(2)}万`}</p>
+              <p>{sumSCntS}</p>
               <p>总场次</p>
             </li>
             <li>
@@ -90,18 +84,18 @@ class BoxofficeList extends React.Component {
                     <span>{`已上映${item.days}天`}</span>
                   </div>
                   <div>
-                    <span>{(item.rev / 1000000).toFixed(2)}万</span>
-                    <span>{`${(item.revRate * 100).toFixed(2)}%`}</span>
+                    <span>{item.rev}</span>
+                    <span>{`${item.revRate}%`}</span>
                   </div>
                   <div>
-                    <span>{`${(item.sCntRate * 100).toFixed(2)}%`}</span>
-                    <span>{`${(item.sCnt / 10000).toFixed(2)}万场`}</span>
+                    <span>{item.sCntRate}</span>
+                    <span>{item.sCnt}</span>
                   </div>
                   <div>
-                    <span>{(item.seat / 100000).toFixed(2)}%</span>
+                    <span>{item.seat}</span>
                   </div>
                   <div>
-                    <span>{(item.sumRev / 10000000000).toFixed(2)}亿</span>
+                    <span>{item.sumRev}</span>
                   </div>
                 </li>
               )
@@ -117,12 +111,7 @@ class BoxofficeList extends React.Component {
 }
 
 BoxofficeList.propTypes = {
-  upd: React.PropTypes.string.isRequired,
-  data: React.PropTypes.array.isRequired,
-  sumSCnt: React.PropTypes.number.isRequired,
-  aveSeat: React.PropTypes.number.isRequired,
-  sumRev: React.PropTypes.number.isRequired,
-  newMovieCnt: React.PropTypes.number.isRequired,
+  boxoffice: React.PropTypes.object.isRequired,
 };
 
 export default BoxofficeList;

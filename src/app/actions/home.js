@@ -9,11 +9,11 @@ function receiveMovieRevenuesData(resp) {
   };
 }
 
-export function GetMovieRevenues() {
+export function GetMovieRevenues(date) {
   return (dispatch) => {
     const url = API.oneDayMovieRevenues;
     const data = {
-      targetDate: 20161211,
+      targetDate: date,
     };
     return request.GET(url, data)
       .then(function(resp) {
@@ -31,11 +31,11 @@ function receiveCinemaRevenuesData(resp) {
   };
 }
 
-export function GetCinemaRevenues() {
+export function GetCinemaRevenues(date) {
   return (dispatch) => {
     const url = API.oneDayCinemaRevenues;
     const data = {
-      targetDate: 20161208,
+      targetDate: date,
       pageSize: 50,
       pageIdx: 0,
     };
@@ -55,11 +55,11 @@ function receiveCinemaLineRevenuesData(resp) {
   };
 }
 
-export function GetCinemaLineRevenues() {
+export function GetCinemaLineRevenues(date) {
   return (dispatch) => {
     const url = API.oneDayCinemLineaRevenues;
     const data = {
-      targetDate: 20161208,
+      targetDate: date,
     };
     return request.GET(url, data)
       .then(function(resp) {

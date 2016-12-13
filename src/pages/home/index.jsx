@@ -2,6 +2,7 @@ import React from 'react';
 
 import connect from 'utils/connect';
 import { FOOTER_TYPE } from 'utils/constant';
+import fecha from 'utils/fecha';
 
 import RoomSelector from 'app/selectors/home';
 
@@ -19,12 +20,12 @@ class Home extends React.Component {
     super(...props);
   }
   componentWillMount() {
-    this.props.actions.GetMovieRevenues();
+    const today = fecha.format(new Date(), 'YYYYMMDD');
+    this.props.actions.GetMovieRevenues(today);
   }
   render() {
     const { boxoffice } = this.props;
-    const { upd, data, sumRev, sumSCnt, aveSeat, newMovieCnt } = boxoffice;
-    if (!upd) {
+    if (!boxoffice) {
       return null;
     }
     return (
@@ -34,12 +35,7 @@ class Home extends React.Component {
           <Type />
           <BoxofficeType />
           <BoxofficeList
-            upd={upd}
-            data={data}
-            sumSCnt={sumSCnt}
-            aveSeat={aveSeat}
-            sumRev={sumRev}
-            newMovieCnt={newMovieCnt}
+            boxoffice={boxoffice}
           />
         </div>
         <Footer type={FOOTER_TYPE[0]} />
