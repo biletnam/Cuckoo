@@ -26,8 +26,8 @@ export function GetMovieRevenues(date) {
 
 function receiveCinemaRevenuesData(resp) {
   return {
-    type: types.GET_MOVIE_REVENUES,
-    boxoffice: resp,
+    type: types.GET_CINEMA_REVENUES,
+    cinemaBoxoffice: resp,
   };
 }
 
@@ -50,8 +50,8 @@ export function GetCinemaRevenues(date) {
 
 function receiveCinemaLineRevenuesData(resp) {
   return {
-    type: types.GET_MOVIE_REVENUES,
-    boxoffice: resp,
+    type: types.GET_CINEMA_LINE_REVENUES,
+    cinemaLineBoxoffice: resp,
   };
 }
 

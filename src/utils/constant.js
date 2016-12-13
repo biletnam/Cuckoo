@@ -19,3 +19,9 @@ export const PIE_COLORS = [
   '#1985CD',
   '#4D5E70',
 ];
+
+export const BOXOFFICE_TYPE = {
+  film: 0,
+  cinema: 1,
+  cinemaLine: 2,
+};

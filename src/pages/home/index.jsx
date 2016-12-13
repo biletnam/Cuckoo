@@ -1,7 +1,7 @@
 import React from 'react';
 
 import connect from 'utils/connect';
-import { FOOTER_TYPE } from 'utils/constant';
+import { FOOTER_TYPE, BOXOFFICE_TYPE } from 'utils/constant';
 import fecha from 'utils/fecha';
 
 import RoomSelector from 'app/selectors/home';
@@ -18,10 +18,31 @@ import './index.scss';
 class Home extends React.Component {
   constructor(props) {
     super(...props);
+    this.state = {
+      date: '',
+    };
   }
   componentWillMount() {
     const today = fecha.format(new Date(), 'YYYYMMDD');
+    this.setState = {
+      date: today,
+    };
     this.props.actions.GetMovieRevenues(today);
+  }
+  toggleType(type) {
+    const { GetMovieRevenues, GetCinemaRevenues, GetCinemaLineRevenues } = this.props.actions;
+    const { date } = this.state
+    switch (BOXOFFICE_TYPE[type]) {
+      case 0:
+        GetMovieRevenues(date);
+        break;
+      case 1:
+        GetCinemaRevenues(date);
+        break;
+      case 2:
+        GetCinemaLineRevenues(date);
+        break;
+    }
   }
   render() {
     const { boxoffice } = this.props;
@@ -33,10 +54,8 @@ class Home extends React.Component {
         <Head title="Cuckoo" />
         <div className="home-scroll">
           <Type />
-          <BoxofficeType />
-          <BoxofficeList
-            boxoffice={boxoffice}
-          />
+          <BoxofficeType toggleType={this.toggleType.bind(this)} />
+          <BoxofficeList boxoffice={boxoffice} />
         </div>
         <Footer type={FOOTER_TYPE[0]} />
       </div>

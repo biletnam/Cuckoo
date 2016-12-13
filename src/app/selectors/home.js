@@ -44,11 +44,19 @@ const getBoxoffice = (state) => {
   return boxoffice;
 };
 
+const getCinemaBoxoffice = state => state.cinemaBoxoffice;
+
+const getCinemaLineBoxoffice = state => state.cinemaLineBoxoffice;
+
 export default createSelector(
   getBoxoffice,
-  (boxoffice) => {
+  getCinemaBoxoffice,
+  getCinemaLineBoxoffice,
+  (boxoffice, cinemaBoxoffice, cinemaLineBoxoffice) => {
     return {
       boxoffice,
+      cinemaBoxoffice,
+      cinemaLineBoxoffice,
     };
   },
 );

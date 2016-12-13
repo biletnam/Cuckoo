@@ -4,6 +4,7 @@ import fecha from 'utils/fecha';
 
 class BoxofficeType extends React.Component {
   render() {
+    const { toggleType } = this.props;
     const today = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
     return (
       <div className="box-office">
@@ -27,9 +28,15 @@ class BoxofficeType extends React.Component {
           </div>
         </div>
         <ul className="box-office-switchtype">
-          <li className="switchtype-movie">影片排行</li>
-          <li className="switchtype-cinema">影院排行</li>
-          <li className="switchtype-cinema-line">院线排行</li>
+          <li
+            className="switchtype-movie"
+            onClick={toggleType.bind(this, 'film')}>影片排行</li>
+          <li
+            className="switchtype-cinema"
+            onClick={toggleType.bind(this, 'cinema')}>影院排行</li>
+          <li
+            className="switchtype-cinema-line"
+            onClick={toggleType.bind(this, 'cinemaLine')}>院线排行</li>
         </ul>
       </div>
     );
@@ -38,6 +45,7 @@ class BoxofficeType extends React.Component {
 
 
 BoxofficeType.propTypes = {
+  toggleType: React.PropTypes.func.isRequired,
 };
 
 export default BoxofficeType;

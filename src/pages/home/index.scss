@@ -120,18 +120,6 @@
     margin-top: 25px;
     display: flex;
 
-    .chart-data-warapper {
-    	flex: 1;
-			text-align: center;
-			margin-top: -25px;
-    	span {
-    		font-size: 11px;
-    		color: #9BA0A6;
-    		display: block;
-    		margin-top: -12px;
-    	}
-    }
-
     .data-text {
     	flex: 1;
     	font-size: 12px;
@@ -185,52 +173,6 @@
 		    		color: #B1B2B7;
 	    		}
 	    	}
-	    }
-		}
-		.table-list {
-		  display: table;
-	    width: 100%;
-
-	    .table-list-title {
-	    	height: 50px;
-	    	font-size: 11px;
-
-	    	span {
-	    		display: table-cell;
-			    box-sizing: border-box;
-			    text-align: center;
-			    vertical-align: middle;
-			    border-bottom: 1px solid #ECECEC;
-			    flex: 1;
-			    color: #87919D;
-	    	}
-	    }
-	    li {
-				display: table-row;
-		    height: 57px;
-		    font-size: 14px;
-		    position: relative;
-
-		    div {
-					display: table-cell;
-			    box-sizing: border-box;
-			    text-align: center;
-			    vertical-align: middle;
-			    border-bottom: 1px solid #ECECEC;
-			    flex: 1;
-			    color: #5A636A;
-			    &:first-child {
-			    	width: 110px;
-			    }
-			    span {
-			    	display: block;
-			    	&:last-child {
-			    		font-size: 11px;
-			    		color: #7F828B;
-			    		margin-top: 7px;
-			    	}
-			    }
-		    }
 	    }
 		}
 	}
