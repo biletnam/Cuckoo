@@ -10,6 +10,9 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import rootReducer from 'app/reducers/index';
 
 import Home from './home/index';
+import FilmBoxoffice from './boxoffice/FilmBoxoffice';
+import CinemaBoxoffice from './boxoffice/CinemaBoxoffice';
+// import CinemaLineBO from './cinemaLineBO/index';
 import NotFound from './notfound/index';
 
 const logger = createLogger({
@@ -31,7 +34,8 @@ const history = syncHistoryWithStore(browserHistory, store);
 const Root = () => (
   <Router history={history}>
     <Route path="/" component={Home}>
-      <IndexRoute component={Home} />
+      <IndexRoute component={FilmBoxoffice} />
+      <Route path="cinema" component={CinemaBoxoffice} />
     </Route>
     <Route path="*" component={NotFound} />
   </Router>
@@ -45,3 +49,5 @@ render(
   </Provider>,
   rootElement,
 );
+
+      // <Route path="cinemaLine" component={CinemaLineBO} />

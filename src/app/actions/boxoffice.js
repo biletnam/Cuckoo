@@ -5,15 +5,15 @@ import { API } from 'utils/api';
 function receiveMovieRevenuesData(resp) {
   return {
     type: types.GET_MOVIE_REVENUES,
-    boxoffice: resp,
+    filmBoxoffice: resp,
   };
 }
 
-export function GetMovieRevenues() {
+export function GetMovieRevenues(date) {
   return (dispatch) => {
     const url = API.oneDayMovieRevenues;
     const data = {
-      targetDate: 20161211,
+      targetDate: date,
     };
     return request.GET(url, data)
       .then(function(resp) {
@@ -26,18 +26,21 @@ export function GetMovieRevenues() {
 
 function receiveCinemaRevenuesData(resp) {
   return {
-    type: types.GET_MOVIE_REVENUES,
-    boxoffice: resp,
+    type: types.GET_CINEMA_REVENUES,
+    cinemaBoxoffice: resp,
   };
 }
 
-export function GetCinemaRevenues() {
+export function GetCinemaRevenues(date) {
   return (dispatch) => {
     const url = API.oneDayCinemaRevenues;
     const data = {
-      targetDate: 20161208,
+      targetDate: date,
       pageSize: 50,
       pageIdx: 0,
+      cinemaLineId: '',
+      cityId: '',
+      provinceId: '',
     };
     return request.GET(url, data)
       .then(function(resp) {
@@ -50,16 +53,16 @@ export function GetCinemaRevenues() {
 
 function receiveCinemaLineRevenuesData(resp) {
   return {
-    type: types.GET_MOVIE_REVENUES,
-    boxoffice: resp,
+    type: types.GET_CINEMA_LINE_REVENUES,
+    cinemaLineBoxoffice: resp,
   };
 }
 
-export function GetCinemaLineRevenues() {
+export function GetCinemaLineRevenues(date) {
   return (dispatch) => {
     const url = API.oneDayCinemLineaRevenues;
     const data = {
-      targetDate: 20161208,
+      targetDate: date,
     };
     return request.GET(url, data)
       .then(function(resp) {
