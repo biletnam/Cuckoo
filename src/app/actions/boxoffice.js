@@ -5,7 +5,7 @@ import { API } from 'utils/api';
 function receiveMovieRevenuesData(resp) {
   return {
     type: types.GET_MOVIE_REVENUES,
-    boxoffice: resp,
+    filmBoxoffice: resp,
   };
 }
 
@@ -38,6 +38,9 @@ export function GetCinemaRevenues(date) {
       targetDate: date,
       pageSize: 50,
       pageIdx: 0,
+      cinemaLineId: '',
+      cityId: '',
+      provinceId: '',
     };
     return request.GET(url, data)
       .then(function(resp) {

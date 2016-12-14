@@ -1,8 +1,8 @@
 import { createSelector } from 'reselect';
 
-const getBoxoffice = (state) => {
-  const { upd, data, sumSCnt, aveSeat, sumRev, newMovieCnt } = state.boxoffice;
-  let boxoffice;
+const getFilmBoxoffice = (state) => {
+  const { upd, data, sumSCnt, aveSeat, sumRev, newMovieCnt } = state.filmBoxoffice;
+  let filmBoxoffice;
   if (upd) {
     const aveTicketPrice = (sumRev / sumSCnt / aveSeat / 100).toFixed(2);
     let todayBoxOffice = (sumRev / 1000000).toFixed(0);
@@ -30,7 +30,7 @@ const getBoxoffice = (state) => {
     });
     pieData.push(100 - pie);
     const sumSCntS = `${(sumSCnt / 10000).toFixed(2)}万`;
-    boxoffice = {
+    filmBoxoffice = {
       aveTicketPrice,
       todayBoxOffice,
       sortData,
@@ -41,7 +41,7 @@ const getBoxoffice = (state) => {
       newMovieCnt,
     };
   }
-  return boxoffice;
+  return filmBoxoffice;
 };
 
 const getCinemaBoxoffice = state => state.cinemaBoxoffice;
@@ -49,12 +49,12 @@ const getCinemaBoxoffice = state => state.cinemaBoxoffice;
 const getCinemaLineBoxoffice = state => state.cinemaLineBoxoffice;
 
 export default createSelector(
-  getBoxoffice,
+  getFilmBoxoffice,
   getCinemaBoxoffice,
   getCinemaLineBoxoffice,
-  (boxoffice, cinemaBoxoffice, cinemaLineBoxoffice) => {
+  (filmBoxoffice, cinemaBoxoffice, cinemaLineBoxoffice) => {
     return {
-      boxoffice,
+      filmBoxoffice,
       cinemaBoxoffice,
       cinemaLineBoxoffice,
     };

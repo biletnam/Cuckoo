@@ -3,8 +3,15 @@ import React from 'react';
 import fecha from 'utils/fecha';
 
 class BoxofficeType extends React.Component {
+  static contextTypes = {
+    router: React.PropTypes.object,
+  }
+  onTabChange(path) {
+    this.context.router.replace({
+      pathname: path,
+    });
+  }
   render() {
-    const { toggleType } = this.props;
     const today = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
     return (
       <div className="box-office">
@@ -30,13 +37,15 @@ class BoxofficeType extends React.Component {
         <ul className="box-office-switchtype">
           <li
             className="switchtype-movie"
-            onClick={toggleType.bind(this, 'film')}>影片排行</li>
+            onClick={this.onTabChange.bind(this, '/')}
+          >影片排行</li>
           <li
             className="switchtype-cinema"
-            onClick={toggleType.bind(this, 'cinema')}>影院排行</li>
+            onClick={this.onTabChange.bind(this, '/cinema')}
+          >影院排行</li>
           <li
             className="switchtype-cinema-line"
-            onClick={toggleType.bind(this, 'cinemaLine')}>院线排行</li>
+          >院线排行</li>
         </ul>
       </div>
     );
@@ -44,9 +53,8 @@ class BoxofficeType extends React.Component {
 }
 
 
-BoxofficeType.propTypes = {
-  toggleType: React.PropTypes.func.isRequired,
-};
+// BoxofficeType.propTypes = {
+//   toggleType: React.PropTypes.func.isRequired,
+// };
 
 export default BoxofficeType;
-

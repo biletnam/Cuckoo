@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 
 import * as actions from 'app/actions/index';
 
-
 function mapStateToProps(props, state) {
   if (!props) {
     return state;

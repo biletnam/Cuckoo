@@ -5,13 +5,29 @@ export const FOOTER_TYPE = {
   3: 'calendar',
 };
 
-export const BOXOFFICE_TABLE_TITLE = [
-  '影片名称',
-  '实时票房',
-  '排片占比',
-  '上座率',
-  '累计票房',
-];
+export const BOXOFFICE_TABLE_TITLE = {
+  film: [
+    '影片名称',
+    '实时票房',
+    '排片占比',
+    '上座率',
+    '累计票房',
+  ],
+  cinema: [
+    '影院名称',
+    '总票房',
+    '总人次',
+    '场均人次',
+    '平均票价',
+  ],
+  cinemaLine: [
+    '院线名称',
+    '总票房',
+    '总人次',
+    '场均人次',
+    '平均票价',
+  ],
+};
 
 export const PIE_COLORS = [
   '#FF5937',
