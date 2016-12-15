@@ -32,13 +32,16 @@ function Table(props) {
           <li key={i}>
             <div>
               <i />
-              <span>{item.mTitle.length <= sliceIndex ? item.mTitle : `${item.mTitle.slice(0, sliceIndex)}...`}</span>
               {
-                item.days && <span>{`已上映${item.days}天`}</span>
+                item.cinemaLineName ? <span>{item.cinemaLineName}</span> :
+                <span>{item.mTitle.length <= sliceIndex ? item.mTitle : `${item.mTitle.slice(0, sliceIndex)}...`}</span>
+              }
+              {
+                type === 'film' && <span>{`已上映${item.days}天`}</span>
               }
             </div>
             <div>
-              <span>{type === 'cinema' ? `${(item.rev / 1000000).toFixed(1)}万` : item.rev}</span>
+              <span>{type !== 'film' ? `${(item.rev / 1000000).toFixed(1)}万` : item.rev}</span>
               {
                 item.revRate && <span>{`${item.revRate}%`}</span>
               }

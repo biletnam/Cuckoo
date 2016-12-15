@@ -12,7 +12,7 @@ function getOption(
       top: 'center',
       textStyle: {
         color: '#585E6C',
-        fontSize: 16,
+        fontSize: 12,
       },
     },
     series: [

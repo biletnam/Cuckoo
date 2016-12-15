@@ -13,15 +13,9 @@ import './style/index.scss';
 class CinemaBoxoffice extends React.Component {
   constructor(props) {
     super(...props);
-    this.state = {
-      date: '',
-    };
   }
   componentWillMount() {
     const yesterday = fecha.format(new Date(), 'YYYYMMDD') - 1;
-    this.setState = {
-      date: yesterday,
-    };
     this.props.actions.GetCinemaRevenues(yesterday);
   }
   render() {
@@ -36,9 +30,10 @@ class CinemaBoxoffice extends React.Component {
       avgPriceShow,
       data,
     } = cinemaBoxoffice;
+    const date = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
     return (
       <div>
-        <BoxofficeType />
+        <BoxofficeType date={date} />
         <div className="box-office-data">
           <div className="box-office-list">
             <Table

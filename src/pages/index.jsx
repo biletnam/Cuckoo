@@ -12,7 +12,7 @@ import rootReducer from 'app/reducers/index';
 import Home from './home/index';
 import FilmBoxoffice from './boxoffice/FilmBoxoffice';
 import CinemaBoxoffice from './boxoffice/CinemaBoxoffice';
-// import CinemaLineBO from './cinemaLineBO/index';
+import CinemaLineBoxoffice from './boxoffice/CinemaLineBoxoffice';
 import NotFound from './notfound/index';
 
 const logger = createLogger({
@@ -36,6 +36,7 @@ const Root = () => (
     <Route path="/" component={Home}>
       <IndexRoute component={FilmBoxoffice} />
       <Route path="cinema" component={CinemaBoxoffice} />
+      <Route path="cinemaline" component={CinemaLineBoxoffice} />
     </Route>
     <Route path="*" component={NotFound} />
   </Router>
@@ -49,5 +50,3 @@ render(
   </Provider>,
   rootElement,
 );
-
-      // <Route path="cinemaLine" component={CinemaLineBO} />

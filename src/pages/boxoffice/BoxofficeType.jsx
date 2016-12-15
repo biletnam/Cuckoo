@@ -1,10 +1,11 @@
 import React from 'react';
 
-import fecha from 'utils/fecha';
-
 class BoxofficeType extends React.Component {
   static contextTypes = {
     router: React.PropTypes.object,
+  }
+  constructor(props) {
+    super(...props);
   }
   onTabChange(path) {
     this.context.router.replace({
@@ -12,7 +13,7 @@ class BoxofficeType extends React.Component {
     });
   }
   render() {
-    const today = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
+    const { date } = this.props;
     return (
       <div className="box-office">
         <div className="box-office-title">
@@ -26,7 +27,7 @@ class BoxofficeType extends React.Component {
             <span>前一日</span>
           </div>
           <div>
-            <span>{today}</span>
+            <span>{date}</span>
             <i />
           </div>
           <div>
@@ -45,6 +46,7 @@ class BoxofficeType extends React.Component {
           >影院排行</li>
           <li
             className="switchtype-cinema-line"
+            onClick={this.onTabChange.bind(this, '/cinemaline')}
           >院线排行</li>
         </ul>
       </div>
@@ -53,8 +55,8 @@ class BoxofficeType extends React.Component {
 }
 
 
-// BoxofficeType.propTypes = {
-//   toggleType: React.PropTypes.func.isRequired,
-// };
+BoxofficeType.propTypes = {
+  date: React.PropTypes.string.isRequired,
+};
 
 export default BoxofficeType;
