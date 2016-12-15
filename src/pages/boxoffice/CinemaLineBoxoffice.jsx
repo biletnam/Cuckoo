@@ -3,7 +3,6 @@ import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 
 import Table from 'components/Table/index';
-import Pie from 'components/Echarts/Pie';
 import TopList from './TopList';
 import TableType from './TableType';
 import BoxofficeType from './BoxofficeType';
@@ -12,37 +11,46 @@ import HomeSelector from 'app/selectors/boxoffice';
 
 import connect from 'utils/connect';
 import fecha from 'utils/fecha';
+
 import getOption from 'utils/chart_pie';
 import { PIE_COLORS } from 'utils/constant';
 
 import './style/film.scss';
 
-class FilmBoxoffice extends React.Component {
+class CinemaLineBoxoffice extends React.Component {
   constructor(props) {
     super(...props);
   }
 
   componentWillMount() {
-    const today = fecha.format(new Date(), 'YYYYMMDD');
-    this.props.actions.GetMovieRevenues(today);
+    const yesterday = fecha.format(new Date(), 'YYYYMMDD') - 1;
+    this.props.actions.GetCinemaLineRevenues(yesterday);
   }
 
   render() {
-    const { filmBoxoffice } = this.props;
-    if (!filmBoxoffice) {
+    const { cinemaLineBoxoffice } = this.props;
+    if (!cinemaLineBoxoffice.movieCountShow) {
       return null;
     }
     const {
-      aveTicketPrice,
+      movieCountShow,
+      avgPriceShow,
+      showtimeSumShow,
       data,
-      newMovieCnt,
-      pieData,
-      sortData,
-      todayBoxOffice,
-      sumSCntS,
-      upd,
-    } = filmBoxoffice;
-    const option = getOption(pieData, PIE_COLORS, todayBoxOffice);
+      revSumShow,
+      saledSeatSumShow,
+      seatPerShowSumShow,
+    } = cinemaLineBoxoffice;
+    const sortData = data.slice(0, 3);
+    const pieData = [];
+    let pie = 0;
+    sortData.forEach((item) => {
+      const revRate = item.boxOfficeRateShow.split('%')[0];
+      pieData.push(revRate);
+      pie += parseFloat(revRate);
+    });
+    pieData.push(100 - pie);
+    const option = getOption(pieData, PIE_COLORS, revSumShow);
     const date = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
     return (
       <div>
@@ -55,27 +63,27 @@ class FilmBoxoffice extends React.Component {
                 style={{ height: '170px' }}
                 option={option}
               />
-              <span>{`北京时间${upd}更新`}</span>
             </div>
             <TopList
               sortData={sortData}
-              type='film'
+              type = 'cinemaLine'
             />
           </div>
           <div className="box-office-list">
             <TableType
-              sumSCntS={sumSCntS}
-              newMovieCnt={newMovieCnt}
-              aveTicketPrice={aveTicketPrice}
+              sumSCntS={showtimeSumShow}
+              newMovieCnt={movieCountShow}
+              aveTicketPrice={avgPriceShow}
               type='cinemaLine'
             />
             <Table
               data={data}
-              type="film"
+              revSumShow={revSumShow}
+              saledSeatSumShow={saledSeatSumShow}
+              seatPerShowSumShow={seatPerShowSumShow}
+              avgPriceShow={avgPriceShow}
+              type="cinemaLine"
             />
-          </div>
-          <div className="box-office-footer">
-            <p>{`注意：实时票房包含今日未开映场次已售出的票房，数据每30分钟更新一次，上次更新时间${upd}`}</p>
           </div>
         </div>
       </div>
@@ -83,8 +91,8 @@ class FilmBoxoffice extends React.Component {
   }
 }
 
-// FilmBoxoffice.propTypes = {
+// CinemaLineBoxoffice.propTypes = {
 //   boxoffice: React.PropTypes.any.isRequired,
 // };
 
-export default connect(FilmBoxoffice, HomeSelector);
+export default connect(CinemaLineBoxoffice, HomeSelector);

@@ -60,9 +60,11 @@ function receiveCinemaLineRevenuesData(resp) {
 
 export function GetCinemaLineRevenues(date) {
   return (dispatch) => {
-    const url = API.oneDayCinemLineaRevenues;
+    const url = API.oneDayCinemaLineRevenues;
     const data = {
       targetDate: date,
+      cityId: '',
+      provinceId: '',
     };
     return request.GET(url, data)
       .then(function(resp) {

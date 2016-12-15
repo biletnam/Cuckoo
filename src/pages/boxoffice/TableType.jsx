@@ -1,7 +1,8 @@
 import React from 'react';
 
 function TableType(props) {
-  const { sumSCntS, newMovieCnt, aveTicketPrice } = props;
+  const { sumSCntS, newMovieCnt, aveTicketPrice, type } = props;
+  const film = type === 'film' ? '新上映影片' : '上映影片';
   return (
     <ul className="box-office-overview">
       <li>
@@ -10,7 +11,7 @@ function TableType(props) {
       </li>
       <li>
         <p>{`${newMovieCnt}部`}</p>
-        <p>新上映影片</p>
+        <p>{film}</p>
       </li>
       <li>
         <p>{aveTicketPrice}</p>
@@ -22,8 +23,9 @@ function TableType(props) {
 
 TableType.propTypes = {
   sumSCntS: React.PropTypes.string.isRequired,
-  newMovieCnt: React.PropTypes.number.isRequired,
+  newMovieCnt: React.PropTypes.any.isRequired,
   aveTicketPrice: React.PropTypes.string.isRequired,
+  type: React.PropTypes.string.isRequired,
 };
 
 export default TableType;
