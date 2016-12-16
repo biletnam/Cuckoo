@@ -3,7 +3,6 @@ import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 
 import Table from 'components/Table/index';
-import Pie from 'components/Echarts/Pie';
 import TopList from './TopList';
 import TableType from './TableType';
 import BoxofficeType from './BoxofficeType';
@@ -15,7 +14,7 @@ import fecha from 'utils/fecha';
 import getOption from 'utils/chart_pie';
 import { PIE_COLORS } from 'utils/constant';
 
-import './style/film.scss';
+import './style/boxoffice.scss';
 
 class FilmBoxoffice extends React.Component {
   constructor(props) {

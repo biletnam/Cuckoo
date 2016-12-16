@@ -16,7 +16,10 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home">
-        <Head title="Cuckoo" />
+        <Head
+          title="Cuckoo"
+          back={false}
+        />
         <div className="home-scroll">
           <Type />
           { this.props.children }

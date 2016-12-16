@@ -15,7 +15,7 @@ import fecha from 'utils/fecha';
 import getOption from 'utils/chart_pie';
 import { PIE_COLORS } from 'utils/constant';
 
-import './style/film.scss';
+import './style/boxoffice.scss';
 
 class CinemaLineBoxoffice extends React.Component {
   constructor(props) {
