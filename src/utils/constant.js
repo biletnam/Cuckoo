@@ -29,11 +29,20 @@ export const BOXOFFICE_TABLE_TITLE = {
   ],
 };
 
-export const PIE_COLORS = [
+export const BOXOFFICE_PIE_COLORS = [
   '#FF5937',
   '#FDAF29',
   '#1985CD',
   '#4D5E70',
+];
+
+export const SCHEDULES_PIE_COLORS = [
+  '#FF5937',
+  '#FCB029',
+  '#1587CD',
+  '#34B898',
+  '#CACEDA',
+  '#EDEDED',
 ];
 
 export const BOXOFFICE_TYPE = {
@@ -41,3 +50,4 @@ export const BOXOFFICE_TYPE = {
   cinema: 1,
   cinemaLine: 2,
 };
+

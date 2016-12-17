@@ -12,8 +12,8 @@ import HomeSelector from 'app/selectors/boxoffice';
 import connect from 'utils/connect';
 import fecha from 'utils/fecha';
 
-import getOption from 'utils/chart_pie';
-import { PIE_COLORS } from 'utils/constant';
+import getOption from 'utils/boxoffice_chart_pie';
+import { BOXOFFICE_PIE_COLORS } from 'utils/constant';
 
 import './style/boxoffice.scss';
 
@@ -50,7 +50,7 @@ class CinemaLineBoxoffice extends React.Component {
       pie += parseFloat(revRate);
     });
     pieData.push(100 - pie);
-    const option = getOption(pieData, PIE_COLORS, revSumShow);
+    const option = getOption(pieData, BOXOFFICE_PIE_COLORS, revSumShow);
     const date = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
     return (
       <div>

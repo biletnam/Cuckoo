@@ -1,6 +1,9 @@
 import React from 'react';
 
 import Head from 'components/Head';
+import SwitchType from './SwitchType';
+
+import './index.scss';
 
 class Schedules extends React.Component {
   constructor(props) {
@@ -13,7 +16,10 @@ class Schedules extends React.Component {
           title="Cuckoo"
           back
         />
-        { this.props.children }
+        <div className="schedules-frame">
+          <SwitchType />
+          { this.props.children }
+        </div>
       </div>
     );
   }
