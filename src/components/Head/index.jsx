@@ -2,10 +2,11 @@ import React from 'react';
 
 import './head.scss';
 
-class Head extends React.Component {
+class Head extends React.PureComponent {
 
   constructor(...props) {
     super(...props);
+    this.getBack = this.getBack.bind(this);
   }
 
   getBack() {
@@ -24,7 +25,7 @@ class Head extends React.Component {
           back &&
           <i
             className="head-back"
-            onClick={() => this.getBack()}
+            onClick={this.getBack}
           />
         }
         <span className="head-title">{title}</span>

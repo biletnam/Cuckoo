@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Type extends React.Component {
+class Type extends React.PureComponent {
   static contextTypes = {
     router: React.PropTypes.object,
   }

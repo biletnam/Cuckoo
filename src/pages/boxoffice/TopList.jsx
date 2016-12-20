@@ -5,29 +5,31 @@ const BOXOFFICE_TEXT = {
   cinemaLine: '院线',
 };
 
-function TopList(props) {
-  const { sortData, type } = props;
-  const other = BOXOFFICE_TEXT[type];
-  return (
-    <ul className="data-text">
-      {
-        sortData.map((item, i) =>
-          <li key={i}>
-            <i />
-            <p>{type === 'film' ? item.mTitle : item.cinemaLineName}</p>
-            <p>
-              <span className={`box-office-percent-${i} box-office-percent`}>{type === 'film' ? `${item.revRate}%` : item.boxOfficeRateShow}</span>
-              <span>{type === 'film' ? item.rev : item.revShow }</span>
-            </p>
-          </li>
-        )
-      }
-      <li>
-        <i />
-        <p>{`其他${other}`}</p>
-      </li>
-    </ul>
-  );
+class TopList extends React.PureComponent {
+  render() {
+    const { sortData, type } = this.props;
+    const other = BOXOFFICE_TEXT[type];
+    return (
+      <ul className="data-text">
+        {
+          sortData.map((item, i) =>
+            <li key={i}>
+              <i />
+              <p>{type === 'film' ? item.mTitle : item.cinemaLineName}</p>
+              <p>
+                <span className={`box-office-percent-${i} box-office-percent`}>{type === 'film' ? `${item.revRate}%` : item.boxOfficeRateShow}</span>
+                <span>{type === 'film' ? item.rev : item.revShow }</span>
+              </p>
+            </li>
+          )
+        }
+        <li>
+          <i />
+          <p>{`其他${other}`}</p>
+        </li>
+      </ul>
+    );
+  }
 }
 
 TopList.propTypes = {

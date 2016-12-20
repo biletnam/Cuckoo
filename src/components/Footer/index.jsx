@@ -18,19 +18,21 @@ const content = [{
   type: 'calendar',
 }];
 
-const Footer = (props) => {
-  const { type } = props;
-  return (
-    <div className={`footer ${type}`}>
-      {content.map((item, i) =>
-        <div type={item.type} key={i} className="tab" >
-          <i className={`icon-${FOOTER_TYPE[i]} icon`} />
-          <span className={`span-${FOOTER_TYPE[i]}`}>{item.text}</span>
-        </div>
-       )}
-    </div>
-  );
-};
+class Footer extends React.PureComponent {
+  render() {
+    const { type } = this.props;
+    return (
+      <div className={`footer ${type}`}>
+        {content.map((item, i) =>
+          <div type={item.type} key={i} className="tab" >
+            <i className={`icon-${FOOTER_TYPE[i]} icon`} />
+            <span className={`span-${FOOTER_TYPE[i]}`}>{item.text}</span>
+          </div>
+         )}
+      </div>
+    );
+  }
+}
 
 Footer.propTypes = {
   type: React.PropTypes.string.isRequired,

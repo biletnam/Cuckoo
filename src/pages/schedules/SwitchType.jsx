@@ -5,7 +5,7 @@ const TYPE = [
   '明天',
   '后天',
   '更多日期',
-]
+];
 
 class SwitchYpe extends React.Component {
   constructor(props) {
