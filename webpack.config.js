@@ -56,6 +56,7 @@ module.exports = {
       app: 'app',
     },
   },
+  // Enable sourcemaps for debugging webpack's output.
   devtool: 'eval-source-map',
   eslint: {
     failOnWarning: true,

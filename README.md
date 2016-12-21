@@ -54,6 +54,11 @@ yarn start
 * [echarts](https://github.com/ecomfe/echarts):A powerful, interactive charting and visualization library for browser
 * [echarts-for-react](https://github.com/hustcc/echarts-for-react):baidu Echarts(v3.0) components for React wrapper
 
+## TODO
+
+- [ ] cuckoo-ui
+- [ ] Immutable.js
+- [ ] webpack2.0
 
 ## License
 
