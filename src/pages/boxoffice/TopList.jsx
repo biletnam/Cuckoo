@@ -17,7 +17,7 @@ class TopList extends React.PureComponent {
               <i />
               <p>{type === 'film' ? item.mTitle : item.cinemaLineName}</p>
               <p>
-                <span className={`box-office-percent-${i} box-office-percent`}>{type === 'film' ? `${item.revRate}%` : item.boxOfficeRateShow}</span>
+                <span className={`box-office-percent-${i} box-office-percent`}>{type === 'film' ? `${item.revRate}` : item.boxOfficeRateShow}</span>
                 <span>{type === 'film' ? item.rev : item.revShow }</span>
               </p>
             </li>

@@ -7,8 +7,8 @@ import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
   filmBoxoffice,
-  cinemaBoxoffice,
-  cinemaLineBoxoffice,
+  cinema: cinemaBoxoffice,
+  cinemaLine: cinemaLineBoxoffice,
   schedules,
   routing: routerReducer,
 });

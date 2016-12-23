@@ -3,13 +3,15 @@ import * as types from '../constants/ActionTypes';
 
 const initialState = {
   cinemaLineBoxoffice: {},
+  loading: false,
 };
 
 const handler = {};
 
 handler[types.GET_CINEMA_LINE_REVENUES] = (state, action) => {
   return Object.assign({}, ...state, {
-    ...action.cinemaLineBoxoffice,
+    cinemaLineBoxoffice: action.cinemaLineBoxoffice,
+    loading: true,
   });
 };
 

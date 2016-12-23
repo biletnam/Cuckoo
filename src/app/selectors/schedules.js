@@ -26,18 +26,27 @@ const GetMovieSchedules = (state) => {
     };
     topData.push(other);
     const pieData = topData.map(item => item.schedulesPercent);
+    let dataSource = []
     data.forEach((info) => {
-      info.gCntRate = `${(info.gCntRate * 100).toFixed(2)}%`;
-      info.sCntRate = `${(info.sCntRate * 100).toFixed(2)}%`;
-      info.saledRate = `${(info.saledRate * 100).toFixed(2)}%`;
-      info.sCnt = `${(info.sCnt / 10000).toFixed(2)}万场`;
+      const day = `已上映${info.days}天`
+      const dataSourceVaule = {
+        firstLine: [
+          info.mTitle,
+          day,
+        ],
+        secondLine: `${(info.gCntRate * 100).toFixed(2)}%`,
+        thirdLine: `${(info.sCntRate * 100).toFixed(2)}%`,
+        fourthLine: `${(info.saledRate * 100).toFixed(2)}%`,
+        fifthLine: `${(info.sCntRate * 100).toFixed(2)}%`,
+      }
+      dataSource.push(dataSourceVaule)
     });
     const schedules = {
       date,
       sumSCntPercent,
       topData,
       pieData,
-      data,
+      dataSource,
       upd,
       name,
     };

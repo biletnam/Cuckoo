@@ -4,13 +4,12 @@ import ReactEcharts from 'echarts-for-react';
 
 import SchedulesSelector from 'app/selectors/schedules';
 
-import Table from 'components/Table';
+import { Table } from 'cuckoo-ui';
 
 import connect from 'utils/connect';
 import fecha from 'utils/fecha';
 import getOption from 'utils/schedules_chart_pie';
-import { SCHEDULES_PIE_COLORS } from 'utils/constant';
-// import './style/film.scss';
+import { SCHEDULES_PIE_COLORS, TABLE_TITLE } from 'utils/constant';
 
 class SchedulesDetail extends React.Component {
   constructor(props) {
@@ -32,11 +31,12 @@ class SchedulesDetail extends React.Component {
       sumSCntPercent,
       topData,
       pieData,
-      data,
+      dataSource,
       upd,
       name,
     } = schedules;
     const option = getOption(pieData, SCHEDULES_PIE_COLORS);
+    const columns = TABLE_TITLE.schedules
     return (
       <div className="schedules-detail">
         <div className="schedules-overview">
@@ -65,8 +65,8 @@ class SchedulesDetail extends React.Component {
           </ul>
         </div>
         <Table
-          data={data}
-          type="film"
+          dataSource={dataSource}
+          columns={columns}
         />
         <div className="schedules-footer">
           <p>{`注意：实时排片包含今日未开映场次已售出的票房，数据每30分钟更新一次，上次更新时间${upd}`}</p>
