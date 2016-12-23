@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Table } from 'cuckoo-ui';
-import BoxofficeType from './BoxofficeType';
+import BoxofficeType from './components/BoxofficeType';
 
 import CinemaSelector from 'app/selectors/cinemaBoxoffice';
 

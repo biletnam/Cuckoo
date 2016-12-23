@@ -6,7 +6,7 @@ import schedules from './schedules';
 import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
-  filmBoxoffice,
+  film: filmBoxoffice,
   cinema: cinemaBoxoffice,
   cinemaLine: cinemaLineBoxoffice,
   schedules,

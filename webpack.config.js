@@ -22,6 +22,11 @@ module.exports = {
         pathRewrite: {'^/api' : ''},
         changeOrigin: true,
       },
+      '/new': {
+        target: 'http://api2.pro.mtime.cn',
+        pathRewrite: {'^/new': ''},
+        changeOrigin: true,
+      }
     },
   },
   module: {

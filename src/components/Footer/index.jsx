@@ -19,12 +19,26 @@ const content = [{
 }];
 
 class Footer extends React.PureComponent {
+
+  static contextTypes = {
+    router: React.PropTypes.object,
+  }
+  routerPage(type) {
+    this.context.router.push({
+      pathname: `/${type}`
+    });
+  }
   render() {
     const { type } = this.props;
     return (
       <div className={`footer ${type}`}>
         {content.map((item, i) =>
-          <div type={item.type} key={i} className="tab" >
+          <div
+            type={item.type}
+            key={i}
+            className="tab" 
+            onClick={() => this.routerPage(item.type)}
+          >
             <i className={`icon-${FOOTER_TYPE[i]} icon`} />
             <span className={`span-${FOOTER_TYPE[i]}`}>{item.text}</span>
           </div>
