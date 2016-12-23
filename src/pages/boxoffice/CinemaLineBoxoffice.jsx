@@ -1,21 +1,21 @@
 import React from 'react';
 
 import ReactEcharts from 'echarts-for-react';
+import { Table } from 'cuckoo-ui';
 
-import Table from 'components/Table/index';
 import TopList from './TopList';
 import TableType from './TableType';
 import BoxofficeType from './BoxofficeType';
 
-import HomeSelector from 'app/selectors/boxoffice';
+import CinemaLineSelector from 'app/selectors/cinemaLineBoxoffice';
 
 import connect from 'utils/connect';
 import fecha from 'utils/fecha';
 
-import getOption from 'utils/chart_pie';
-import { PIE_COLORS } from 'utils/constant';
+import getOption from 'utils/boxoffice_chart_pie';
+import { BOXOFFICE_PIE_COLORS, TABLE_TITLE } from 'utils/constant';
 
-import './style/film.scss';
+import './style/boxoffice.scss';
 
 class CinemaLineBoxoffice extends React.Component {
   constructor(props) {
@@ -29,29 +29,21 @@ class CinemaLineBoxoffice extends React.Component {
 
   render() {
     const { cinemaLineBoxoffice } = this.props;
-    if (!cinemaLineBoxoffice.movieCountShow) {
+    if (!cinemaLineBoxoffice) {
       return null;
     }
     const {
       movieCountShow,
       avgPriceShow,
       showtimeSumShow,
-      data,
+      dataSource,
       revSumShow,
-      saledSeatSumShow,
-      seatPerShowSumShow,
+      sortData,
+      pieData
     } = cinemaLineBoxoffice;
-    const sortData = data.slice(0, 3);
-    const pieData = [];
-    let pie = 0;
-    sortData.forEach((item) => {
-      const revRate = item.boxOfficeRateShow.split('%')[0];
-      pieData.push(revRate);
-      pie += parseFloat(revRate);
-    });
-    pieData.push(100 - pie);
-    const option = getOption(pieData, PIE_COLORS, revSumShow);
+    const option = getOption(pieData, BOXOFFICE_PIE_COLORS, revSumShow);
     const date = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
+    const columns = TABLE_TITLE.cinemaLine
     return (
       <div>
         <BoxofficeType date={date} />
@@ -77,12 +69,8 @@ class CinemaLineBoxoffice extends React.Component {
               type='cinemaLine'
             />
             <Table
-              data={data}
-              revSumShow={revSumShow}
-              saledSeatSumShow={saledSeatSumShow}
-              seatPerShowSumShow={seatPerShowSumShow}
-              avgPriceShow={avgPriceShow}
-              type="cinemaLine"
+              dataSource={dataSource}
+              columns={columns}
             />
           </div>
         </div>
@@ -95,4 +83,4 @@ class CinemaLineBoxoffice extends React.Component {
 //   boxoffice: React.PropTypes.any.isRequired,
 // };
 
-export default connect(CinemaLineBoxoffice, HomeSelector);
+export default connect(CinemaLineBoxoffice, CinemaLineSelector);

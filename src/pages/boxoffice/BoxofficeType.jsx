@@ -1,6 +1,6 @@
 import React from 'react';
 
-class BoxofficeType extends React.Component {
+class BoxofficeType extends React.PureComponent {
   static contextTypes = {
     router: React.PropTypes.object,
   }

@@ -23,4 +23,8 @@ fecha.masks = {
   longTime: 'HH:mm:ss.SSS',
 };
 
+const YYYYMMDD = 'YYYYMMDD';
+
+fecha.getDateString = (date, format) => fecha.format(fecha.parse(date, YYYYMMDD), format || 'YYYY[年]MM[月]DD[日]');
+
 export default fecha;

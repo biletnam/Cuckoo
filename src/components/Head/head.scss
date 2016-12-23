@@ -4,14 +4,30 @@
 	background: #1587cd;
 	position: fixed;
   z-index: 1000;
-	align-items: center;
+  text-align: center;
+  line-height: 40px;
+  
+  .head-back {
+    float: left;
+    display: inline-block;
+    width: 40px;
+    &:after {
+      content: "";
+      display: inline-block;
+      transform: rotate(135deg);
+      width: 12px;
+      height: 12px;
+      border: 2px solid #fff;
+      border-left: none;
+      border-top: none;
+    }
+  }
 
   .head-title {
-    margin: 0;
-    padding: 0;
     line-height: 40px;
-    text-align: center;
     color: white;
     font-size: 18px;
+    margin-left: -40px;
   }
+
 }

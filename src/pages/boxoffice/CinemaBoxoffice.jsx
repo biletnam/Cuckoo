@@ -1,12 +1,13 @@
 import React from 'react';
 
-import Table from 'components/Table/index';
+import { Table } from 'cuckoo-ui';
 import BoxofficeType from './BoxofficeType';
 
-import HomeSelector from 'app/selectors/boxoffice';
+import CinemaSelector from 'app/selectors/cinemaBoxoffice';
 
 import connect from 'utils/connect';
 import fecha from 'utils/fecha';
+import { TABLE_TITLE } from 'utils/constant';
 
 import './style/index.scss';
 
@@ -20,29 +21,19 @@ class CinemaBoxoffice extends React.Component {
   }
   render() {
     const { cinemaBoxoffice } = this.props;
-    if (!cinemaBoxoffice.revSumShow) {
+    if (!cinemaBoxoffice) {
       return null;
     }
-    const {
-      revSumShow,
-      saledSeatSumShow,
-      seatPerShowSumShow,
-      avgPriceShow,
-      data,
-    } = cinemaBoxoffice;
     const date = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
+    const columns = TABLE_TITLE.cinema
     return (
       <div>
         <BoxofficeType date={date} />
         <div className="box-office-data">
           <div className="box-office-list">
             <Table
-              data={data}
-              revSumShow={revSumShow}
-              saledSeatSumShow={saledSeatSumShow}
-              seatPerShowSumShow={seatPerShowSumShow}
-              avgPriceShow={avgPriceShow}
-              type="cinema"
+              dataSource={cinemaBoxoffice}
+              columns={columns}
             />
           </div>
         </div>
@@ -55,4 +46,4 @@ CinemaBoxoffice.propTypes = {
   // CinemaBoxoffice: React.PropTypes.object.isRequired,
 };
 
-export default connect(CinemaBoxoffice, HomeSelector);
+export default connect(CinemaBoxoffice, CinemaSelector);

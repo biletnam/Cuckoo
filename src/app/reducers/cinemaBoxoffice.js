@@ -3,14 +3,16 @@ import * as types from '../constants/ActionTypes';
 
 const initialState = {
   cinemaBoxoffice: {},
+  loading: false,
 };
 
 
 const handler = {};
 
-handler[types.GET_CINEMA_REVENUES] = (state, action) => {
+handler[types.GET_CINEMA_REVENUES] = (state = initialState, action) => {
   return Object.assign({}, ...state, {
-    ...action.cinemaBoxoffice,
+    cinemaBoxoffice: action.cinemaBoxoffice,
+    loading: true,
   });
 };
 

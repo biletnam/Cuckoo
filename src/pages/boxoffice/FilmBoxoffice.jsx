@@ -2,20 +2,19 @@ import React from 'react';
 
 import ReactEcharts from 'echarts-for-react';
 
-import Table from 'components/Table/index';
-import Pie from 'components/Echarts/Pie';
+import { Table } from 'cuckoo-ui';
 import TopList from './TopList';
 import TableType from './TableType';
 import BoxofficeType from './BoxofficeType';
 
-import HomeSelector from 'app/selectors/boxoffice';
+import FilmSelector from 'app/selectors/filmBoxoffice';
 
 import connect from 'utils/connect';
 import fecha from 'utils/fecha';
-import getOption from 'utils/chart_pie';
-import { PIE_COLORS } from 'utils/constant';
+import getOption from 'utils/boxoffice_chart_pie';
+import { BOXOFFICE_PIE_COLORS, TABLE_TITLE } from 'utils/constant';
 
-import './style/film.scss';
+import './style/boxoffice.scss';
 
 class FilmBoxoffice extends React.Component {
   constructor(props) {
@@ -34,16 +33,17 @@ class FilmBoxoffice extends React.Component {
     }
     const {
       aveTicketPrice,
-      data,
+      dataSource,
       newMovieCnt,
       pieData,
-      sortData,
+      topData,
       todayBoxOffice,
       sumSCntS,
       upd,
     } = filmBoxoffice;
-    const option = getOption(pieData, PIE_COLORS, todayBoxOffice);
+    const option = getOption(pieData, BOXOFFICE_PIE_COLORS, todayBoxOffice);
     const date = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
+    const columns = TABLE_TITLE.film
     return (
       <div>
         <BoxofficeType date={date} />
@@ -58,7 +58,7 @@ class FilmBoxoffice extends React.Component {
               <span>{`北京时间${upd}更新`}</span>
             </div>
             <TopList
-              sortData={sortData}
+              sortData={topData}
               type='film'
             />
           </div>
@@ -70,8 +70,8 @@ class FilmBoxoffice extends React.Component {
               type='cinemaLine'
             />
             <Table
-              data={data}
-              type="film"
+              dataSource={dataSource}
+              columns={columns}
             />
           </div>
           <div className="box-office-footer">
@@ -87,4 +87,4 @@ class FilmBoxoffice extends React.Component {
 //   boxoffice: React.PropTypes.any.isRequired,
 // };
 
-export default connect(FilmBoxoffice, HomeSelector);
+export default connect(FilmBoxoffice, FilmSelector);

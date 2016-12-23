@@ -1,3 +1,5 @@
+import 'babel-polyfill'
+
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
@@ -13,6 +15,9 @@ import Home from './home/index';
 import FilmBoxoffice from './boxoffice/FilmBoxoffice';
 import CinemaBoxoffice from './boxoffice/CinemaBoxoffice';
 import CinemaLineBoxoffice from './boxoffice/CinemaLineBoxoffice';
+import Schedules from './schedules/Schedules';
+import SchedulesDetail from './schedules/SchedulesDetail';
+// import DateFilter from './schedules/DateFilter';
 import NotFound from './notfound/index';
 
 const logger = createLogger({
@@ -37,6 +42,9 @@ const Root = () => (
       <IndexRoute component={FilmBoxoffice} />
       <Route path="cinema" component={CinemaBoxoffice} />
       <Route path="cinemaline" component={CinemaLineBoxoffice} />
+    </Route>
+    <Route path="/schedules" component={Schedules}>
+      <IndexRoute component={SchedulesDetail} />
     </Route>
     <Route path="*" component={NotFound} />
   </Router>
