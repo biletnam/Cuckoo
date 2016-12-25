@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Head from 'components/Head';
+import Footer from 'components/Footer';
 
 import SwitchType from './SwitchType';
 
+import { FOOTER_TYPE } from 'utils/constant';
 // import './index.scss';
 
 class News extends React.Component {
@@ -21,6 +23,7 @@ class News extends React.Component {
           <SwitchType />
           { this.props.children }
         </div>
+        <Footer type={FOOTER_TYPE[2]} />
       </div>
     );
   }

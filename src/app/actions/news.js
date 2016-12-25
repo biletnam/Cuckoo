@@ -5,7 +5,7 @@ import { API } from 'utils/api';
 function receiveNewsData(resp) {
   return {
     type: types.GET_NEWS_DATA,
-    news: resp,
+    newsList: resp.data,
   };
 }
 

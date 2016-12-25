@@ -7,7 +7,6 @@ const BOXOFFICE_TEXT = {
 
 class TopList extends React.PureComponent {
   render() {
-    console.log(this.props)
     const { sortData, type } = this.props;
     const other = BOXOFFICE_TEXT[type];
     return (
@@ -16,7 +15,7 @@ class TopList extends React.PureComponent {
           sortData.map((item, i) =>
             <li key={i}>
               <i />
-              <p>{type === 'film' ? item.movieTitle : item.cinemaLineName}</p>
+              <p>{type === 'film' ? item.movieTitle : item.cinemaLineShortName}</p>
               <p>
                 <span className={`box-office-percent-${i} box-office-percent`}>{type === 'film' ? `${item.revRateShow}` : item.boxOfficeRateShow}</span>
                 <span>{type === 'film' ? item.revRmbShow : item.revShow }</span>

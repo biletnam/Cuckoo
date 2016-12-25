@@ -2,7 +2,6 @@ import { createSelector } from 'reselect';
 
 const getFilmBoxoffice = (state) => {
   const { filmBoxoffice: film, loading } = state.film;
-  console.log(film)
   let filmBoxoffice
   if (loading) {
     const dataSource = []
@@ -39,7 +38,6 @@ const getFilmBoxoffice = (state) => {
       const { movieTitle, revRateShow, revRmbShow } = item
       return { movieTitle, revRateShow, revRmbShow }
     })
-    console.log(topData)
     filmBoxoffice = {
       updateTime,
       sumShowCntShow,
