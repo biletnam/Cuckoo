@@ -17,6 +17,7 @@ import CinemaBoxoffice from './boxoffice/CinemaBoxoffice';
 import CinemaLineBoxoffice from './boxoffice/CinemaLineBoxoffice';
 import Schedules from './schedules/Schedules';
 import SchedulesDetail from './schedules/SchedulesDetail';
+import News from './news/News';
 // import DateFilter from './schedules/DateFilter';
 import NotFound from './notfound/index';
 
@@ -24,7 +25,6 @@ const logger = createLogger({
   level: 'info',
   logger: console,
   collapsed: true,
-  diff: true,
 });
 
 const middleware = routerMiddleware(browserHistory);
@@ -46,6 +46,7 @@ const Root = () => (
     <Route path="/schedules" component={Schedules}>
       <IndexRoute component={SchedulesDetail} />
     </Route>
+    <Route path="/news" component={News} />
     <Route path="*" component={NotFound} />
   </Router>
 );

@@ -1,11 +1,11 @@
 import React from 'react';
 
 import ReactEcharts from 'echarts-for-react';
-import { Table } from 'cuckoo-ui';
+import { Table, Loading } from 'cuckoo-ui';
 
-import TopList from './TopList';
-import TableType from './TableType';
-import BoxofficeType from './BoxofficeType';
+import TopList from './components/TopList';
+import TableType from './components/TableType';
+import BoxofficeType from './components/BoxofficeType';
 
 import CinemaLineSelector from 'app/selectors/cinemaLineBoxoffice';
 
@@ -30,7 +30,7 @@ class CinemaLineBoxoffice extends React.Component {
   render() {
     const { cinemaLineBoxoffice } = this.props;
     if (!cinemaLineBoxoffice) {
-      return null;
+      return <Loading />;
     }
     const {
       movieCountShow,
@@ -63,10 +63,9 @@ class CinemaLineBoxoffice extends React.Component {
           </div>
           <div className="box-office-list">
             <TableType
-              sumSCntS={showtimeSumShow}
-              newMovieCnt={movieCountShow}
-              aveTicketPrice={avgPriceShow}
-              type='cinemaLine'
+              showtimeSumShow={showtimeSumShow}
+              movieCountShow={movieCountShow}
+              avgPriceRmbShow={avgPriceShow}
             />
             <Table
               dataSource={dataSource}

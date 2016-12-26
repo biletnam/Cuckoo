@@ -4,7 +4,7 @@ import ReactEcharts from 'echarts-for-react';
 
 import SchedulesSelector from 'app/selectors/schedules';
 
-import { Table } from 'cuckoo-ui';
+import { Table, Loading } from 'cuckoo-ui';
 
 import connect from 'utils/connect';
 import fecha from 'utils/fecha';
@@ -24,7 +24,7 @@ class SchedulesDetail extends React.Component {
   render() {
     const { schedules } = this.props;
     if (!schedules) {
-      return null;
+      return <Loading />;
     }
     const {
       date,

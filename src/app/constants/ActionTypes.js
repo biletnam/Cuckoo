@@ -5,3 +5,6 @@ export const GET_CINEMA_LINE_REVENUES = 'GET_CINEMA_LINE_REVENUES';
 
 // schedules
 export const GET_MOVIE_SCHEDULES = 'GET_MOVIE_SCHEDULES';
+
+// news
+export const GET_NEWS_DATA = 'GET_NEWS_DATA';

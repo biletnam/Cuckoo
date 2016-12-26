@@ -2,10 +2,10 @@ import React from 'react';
 
 import ReactEcharts from 'echarts-for-react';
 
-import { Table } from 'cuckoo-ui';
-import TopList from './TopList';
-import TableType from './TableType';
-import BoxofficeType from './BoxofficeType';
+import { Table, Loading } from 'cuckoo-ui';
+import TopList from './components/TopList';
+import TableType from './components/TableType';
+import BoxofficeType from './components/BoxofficeType';
 
 import FilmSelector from 'app/selectors/filmBoxoffice';
 
@@ -29,19 +29,19 @@ class FilmBoxoffice extends React.Component {
   render() {
     const { filmBoxoffice } = this.props;
     if (!filmBoxoffice) {
-      return null;
+      return <Loading />;
     }
     const {
-      aveTicketPrice,
+      updateTime,
+      sumShowCntShow,
+      movieCountShow,
+      avgPriceRmbShow,
       dataSource,
-      newMovieCnt,
-      pieData,
+      sumRevRmbShow,
       topData,
-      todayBoxOffice,
-      sumSCntS,
-      upd,
+      pieData,
     } = filmBoxoffice;
-    const option = getOption(pieData, BOXOFFICE_PIE_COLORS, todayBoxOffice);
+    const option = getOption(pieData, BOXOFFICE_PIE_COLORS, sumRevRmbShow);
     const date = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
     const columns = TABLE_TITLE.film
     return (
@@ -55,7 +55,7 @@ class FilmBoxoffice extends React.Component {
                 style={{ height: '170px' }}
                 option={option}
               />
-              <span>{`北京时间${upd}更新`}</span>
+              <span>{`北京时间${updateTime}更新`}</span>
             </div>
             <TopList
               sortData={topData}
@@ -64,10 +64,9 @@ class FilmBoxoffice extends React.Component {
           </div>
           <div className="box-office-list">
             <TableType
-              sumSCntS={sumSCntS}
-              newMovieCnt={newMovieCnt}
-              aveTicketPrice={aveTicketPrice}
-              type='cinemaLine'
+              showtimeSumShow={sumShowCntShow}
+              movieCountShow={movieCountShow}
+              avgPriceRmbShow={avgPriceRmbShow}
             />
             <Table
               dataSource={dataSource}
@@ -75,7 +74,7 @@ class FilmBoxoffice extends React.Component {
             />
           </div>
           <div className="box-office-footer">
-            <p>{`注意：实时票房包含今日未开映场次已售出的票房，数据每30分钟更新一次，上次更新时间${upd}`}</p>
+            <p>{`注意：实时票房包含今日未开映场次已售出的票房，数据每30分钟更新一次，上次更新时间${updateTime}`}</p>
           </div>
         </div>
       </div>

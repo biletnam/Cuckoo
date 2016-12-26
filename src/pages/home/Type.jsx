@@ -1,9 +1,11 @@
 import React from 'react';
 
 class Type extends React.PureComponent {
+
   static contextTypes = {
     router: React.PropTypes.object,
   }
+
   routerDetailsPage(pathname) {
     this.context.router.push({
       pathname,
