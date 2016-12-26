@@ -48,7 +48,7 @@
     "babel-polyfill": "^6.20.0",
     "classnames": "^2.2.5",
     "components": "^0.1.0",
-    "cuckoo-ui": "^1.0.6",
+    "cuckoo-ui": "^1.2.0",
     "echarts": "^3.3.2",
     "echarts-for-react": "^1.1.6",
     "fecha": "^2.3.0",

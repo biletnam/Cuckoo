@@ -6,7 +6,7 @@ import './footer.scss';
 
 const content = [{
   text: '电影票房',
-  type: 'boxoffice',
+  type: '',
 }, {
   text: '制片分析',
   type: 'production',

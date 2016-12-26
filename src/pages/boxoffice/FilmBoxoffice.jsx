@@ -2,7 +2,7 @@ import React from 'react';
 
 import ReactEcharts from 'echarts-for-react';
 
-import { Table } from 'cuckoo-ui';
+import { Table, Loading } from 'cuckoo-ui';
 import TopList from './components/TopList';
 import TableType from './components/TableType';
 import BoxofficeType from './components/BoxofficeType';
@@ -29,7 +29,7 @@ class FilmBoxoffice extends React.Component {
   render() {
     const { filmBoxoffice } = this.props;
     if (!filmBoxoffice) {
-      return null;
+      return <Loading />;
     }
     const {
       updateTime,

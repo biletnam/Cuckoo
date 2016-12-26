@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 
 import './head.scss';
 
@@ -18,7 +19,10 @@ class Head extends React.PureComponent {
       title,
       back,
     } = this.props;
-
+    const headTitle = classnames({
+      'head-title': true,
+      'head-back-icon': back
+    })
     return (
       <div className="head">
         {
@@ -28,7 +32,7 @@ class Head extends React.PureComponent {
             onClick={this.getBack}
           />
         }
-        <span className="head-title">{title}</span>
+        <span className={headTitle}>{title}</span>
       </div>
     );
   }

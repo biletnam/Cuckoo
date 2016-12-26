@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table } from 'cuckoo-ui';
+import { Table, Loading } from 'cuckoo-ui';
 import BoxofficeType from './components/BoxofficeType';
 
 import CinemaSelector from 'app/selectors/cinemaBoxoffice';
@@ -22,7 +22,7 @@ class CinemaBoxoffice extends React.Component {
   render() {
     const { cinemaBoxoffice } = this.props;
     if (!cinemaBoxoffice) {
-      return null;
+      return <Loading />;
     }
     const date = fecha.format(new Date(), 'YYYY[年]MM[月]DD[日]');
     const columns = TABLE_TITLE.cinema

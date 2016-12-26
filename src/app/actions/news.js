@@ -9,13 +9,13 @@ function receiveNewsData(resp) {
   };
 }
 
-export function GetNewsList() {
+export function GetNewsList(proNewsType) {
   return (dispatch) => {
     const url = API.newsList;
     const data = {
       pTime: -1,
       pageSize: 20,
-      proNewsType: 0,
+      proNewsType,
       recommendType: 2,
     };
     return request.GET(url, data)
