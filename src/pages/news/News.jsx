@@ -45,10 +45,7 @@ class News extends React.Component {
     window.location.href = url;
   }
   toggleType(type) {
-    const { actions, newsList } = this.props
-    if (TYPE_INDEX[newsList.count] !== type) {
-      actions.GetNewsList(type)
-    }
+    this.props.actions.GetNewsList(type)
   }
 
   render() {
@@ -76,26 +73,23 @@ class News extends React.Component {
             }
           </ul>
           <div className="news-details">
+          <div
+            className="news-banner"
+            style={{backgroundImage: `url(${img})`}}
+            onClick={this.routerBannerDetail}
+          >
+            <p>{title}</p>
+          </div>
+          <ul className="news-details-item">
           {
-            count === 2980 &&
-            <div
-              className="news-banner"
-              style={{backgroundImage: `url(${img})`}}
-              onClick={this.routerBannerDetail}
-            >
-              <p>{title}</p>
-            </div>
+            list.map(item => 
+              <Item 
+                key={item.newsId}
+                item={item}
+              />
+            )
           }
-            <ul className="news-details-item">
-            {
-              list.map(item => 
-                <Item 
-                  key={item.newsId}
-                  item={item}
-                />
-              )
-            }
-            </ul>
+          </ul>
           </div>
         </div>
         <Footer type={FOOTER_TYPE[2]} />

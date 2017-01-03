@@ -7,10 +7,7 @@ const TYPE = [
   '更多日期',
 ];
 
-class SwitchYpe extends React.Component {
-  constructor(props) {
-    super(...props);
-  }
+class SwitchYpe extends React.PureComponent {
   render() {
     return (
       <ul className="switch-type">
