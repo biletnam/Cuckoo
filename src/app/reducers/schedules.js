@@ -13,4 +13,10 @@ handler[types.GET_MOVIE_SCHEDULES] = (state, action) => {
   });
 };
 
+handler[types.GET_TYPE] = (state, action) => {
+	return Object.assign({}, ...state, {
+		type: action.index
+	})
+};
+
 export default handleActions(handler, initialState);

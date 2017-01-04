@@ -11,6 +11,7 @@ const handler = {};
 handler[types.GET_NEWS_DATA] = (state, action) => {
   return Object.assign({}, ...state, {
     newsList: action.newsList,
+    proNewsType: action.proNewsType,
     loading: true,
   });
 };

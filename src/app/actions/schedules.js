@@ -24,3 +24,10 @@ export function GetMovieSchedules(date) {
       });
   };
 }
+
+export function ChangeType(index) {
+  return {
+    type: types.GET_TYPE,
+    index,
+  }
+}

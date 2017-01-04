@@ -9,17 +9,16 @@ import thunk from 'redux-thunk';
 import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
-import rootReducer from 'app/reducers/index';
+import rootReducer from 'app/reducers';
 
-import Home from './home/index';
+import Home from './home';
 import FilmBoxoffice from './boxoffice/FilmBoxoffice';
 import CinemaBoxoffice from './boxoffice/CinemaBoxoffice';
 import CinemaLineBoxoffice from './boxoffice/CinemaLineBoxoffice';
-import Schedules from './schedules/Schedules';
-import SchedulesDetail from './schedules/SchedulesDetail';
+import Schedules from './schedules';
 import News from './news/News';
 // import DateFilter from './schedules/DateFilter';
-import NotFound from './notfound/index';
+import NotFound from './notfound';
 
 const logger = createLogger({
   level: 'info',
@@ -43,9 +42,7 @@ const Root = () => (
       <Route path="cinema" component={CinemaBoxoffice} />
       <Route path="cinemaline" component={CinemaLineBoxoffice} />
     </Route>
-    <Route path="/schedules" component={Schedules}>
-      <IndexRoute component={SchedulesDetail} />
-    </Route>
+    <Route path="/schedules" component={Schedules} />
     <Route path="/news" component={News} />
     <Route path="*" component={NotFound} />
   </Router>

@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 import fecha from 'utils/fecha';
 
 const GetMovieSchedules = (state) => {
+  console.log(state)
   const {
     sumSCnt,
     upd,
@@ -41,7 +42,7 @@ const GetMovieSchedules = (state) => {
       }
       dataSource.push(dataSourceVaule)
     });
-    const schedules = {
+    let schedules = {
       date,
       sumSCntPercent,
       topData,
@@ -55,11 +56,15 @@ const GetMovieSchedules = (state) => {
   }
 };
 
+const GetType = state => state.schedules.type;
+
 export default createSelector(
   GetMovieSchedules,
-  (schedules) => {
+  GetType,
+  (schedules, type) => {
     return {
       schedules,
+      type,
     };
   },
 );

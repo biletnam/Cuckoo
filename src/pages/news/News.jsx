@@ -22,14 +22,6 @@ const TYPE = [
   '产业圈',
 ];
 
-const TYPE_INDEX = {
-  '2980': 0,
-  '2133': 1,
-  '155': 2,
-  '354': 3,
-  '225': 4,
-}
-
 class News extends React.Component {
   constructor(props) {
     super(...props);
@@ -53,7 +45,7 @@ class News extends React.Component {
     if (!newsList) {
       return <Loading />;
     }
-    const { list, topRecommend, count } = newsList;
+    const { list, topRecommend, count, type } = newsList;
     const { img, title } = topRecommend;
     return (
       <div className="news">
@@ -73,13 +65,16 @@ class News extends React.Component {
             }
           </ul>
           <div className="news-details">
-          <div
-            className="news-banner"
-            style={{backgroundImage: `url(${img})`}}
-            onClick={this.routerBannerDetail}
-          >
-            <p>{title}</p>
-          </div>
+          {
+            type === 0 &&
+            <div
+              className="news-banner"
+              style={{backgroundImage: `url(${img})`}}
+              onClick={this.routerBannerDetail}
+            >
+              <p>{title}</p>
+            </div>
+        }
           <ul className="news-details-item">
           {
             list.map(item => 
