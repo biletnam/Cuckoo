@@ -41,7 +41,7 @@ const GetMovieSchedules = (state) => {
       }
       dataSource.push(dataSourceVaule)
     });
-    const schedules = {
+    let schedules = {
       date,
       sumSCntPercent,
       topData,
@@ -55,11 +55,19 @@ const GetMovieSchedules = (state) => {
   }
 };
 
+const GetType = state => state.schedules.type;
+
+const GetDate = state => state.schedules.date;
+
 export default createSelector(
   GetMovieSchedules,
-  (schedules) => {
+  GetType,
+  GetDate,
+  (schedules, type, date) => {
     return {
       schedules,
+      type,
+      date,
     };
   },
 );

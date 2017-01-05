@@ -27,4 +27,13 @@ const YYYYMMDD = 'YYYYMMDD';
 
 fecha.getDateString = (date, format) => fecha.format(fecha.parse(date, YYYYMMDD), format || 'YYYY[年]MM[月]DD[日]');
 
+fecha.addDate = (date, number) => {
+  let dateObject = date.toString()
+  if (typeof dateObject !== 'object') {
+    dateObject = new Date(`${dateObject.slice(0, 4)}, ${dateObject.slice(4, 6)}, ${dateObject.slice(6, 8)}`);
+  }
+  let dateSort = fecha.format(dateObject.setDate(dateObject.getDate() + number), YYYYMMDD);
+  return dateSort;
+}
+
 export default fecha;
