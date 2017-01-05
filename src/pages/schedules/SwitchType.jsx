@@ -28,7 +28,6 @@ class SwitchType extends React.PureComponent {
   }
 
   render() {
-    console.log(this)
     return (
       <ul className="switch-type">
         {

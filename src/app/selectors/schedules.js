@@ -3,7 +3,6 @@ import { createSelector } from 'reselect';
 import fecha from 'utils/fecha';
 
 const GetMovieSchedules = (state) => {
-  console.log(state)
   const {
     sumSCnt,
     upd,
@@ -58,13 +57,17 @@ const GetMovieSchedules = (state) => {
 
 const GetType = state => state.schedules.type;
 
+const GetDate = state => state.schedules.date;
+
 export default createSelector(
   GetMovieSchedules,
   GetType,
-  (schedules, type) => {
+  GetDate,
+  (schedules, type, date) => {
     return {
       schedules,
       type,
+      date,
     };
   },
 );

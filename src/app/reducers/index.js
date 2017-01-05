@@ -10,7 +10,7 @@ const rootReducer = combineReducers({
   film: filmBoxoffice,
   cinema: cinemaBoxoffice,
   cinemaLine: cinemaLineBoxoffice,
-  news: news,
+  news,
   schedules,
   routing: routerReducer,
 });

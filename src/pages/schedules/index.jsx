@@ -21,23 +21,28 @@ class Schedules extends React.Component {
   }
 
   componentWillMount() {
-    const today = fecha.format(new Date(), 'YYYYMMDD');
-    this.initSchedules(today)
+    this.initSchedules()
   }
-  componentWillReceiveProps(props) {
 
-    console.log(props)
+  componentWillReceiveProps(props) {
+    if (typeof this.props.type === 'number' && typeof props.type === 'number') {
+      this.initSchedules(props.type)
+    }
   }
-  initSchedules(date) {
-    this.props.actions.GetMovieSchedules(date);
+
+  async initSchedules(type = 0) {
+    const { GetMovieSchedules, GetDate } = this.props.actions
+    await GetDate();
+    const { today } = this.props.date;
+    const dateSort = fecha.addDate(today, type);
+    GetMovieSchedules(dateSort);
   }
+
   render() {
     const { schedules, actions } = this.props;
-    console.log(this.props)
     if (!schedules) {
       return <Loading />;
     }
-    console.log(actions)
     const { ChangeType } = actions
     const {
       date,

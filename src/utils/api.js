@@ -4,5 +4,5 @@ export const API = {
   oneDayCinemaLineRevenues: 'api/GetDailyCinemaLineRevenueRanking.api',
   AllMovieSchedules: 'api/GetAllMovieSchedules.api',
   newsList: 'new/news/list.api',
-  date: 'new/common.getDate.api',
+  date: 'new/common/getDate.api',
 };
