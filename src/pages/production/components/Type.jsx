@@ -2,25 +2,17 @@ import React from 'react';
 
 const TYPE = [
   {
-    classname: 'film-screening',
-    text: '实时排片',
-    router: 'schedules',
+    key: 'analysis',
+    text: '类型分析',
   },
   {
-    classname: 'trend',
-    text: '票房走势',
-    router: 'trend',
+    key: 'film-ranking',
+    text: '电影排行',
   },
   {
-    classname: 'vs',
-    text: '影片对比',
-    router: 'film-vs',
-  },
-  {
-    classname: 'follow',
-    text: '我的关注',
-    router: 'my-follow',
-  },
+    key: 'actor-ranking',
+    text: '影人排行',
+  }
 ]
 
 class Type extends React.PureComponent {
@@ -29,7 +21,7 @@ class Type extends React.PureComponent {
   }
 
   routerDetailsPage(pathname) {
-    this.context.router.push({
+    this.context.router.replace({
       pathname,
     });
   }
@@ -40,10 +32,9 @@ class Type extends React.PureComponent {
           {
             TYPE.map(item => 
               <li
-                key={item.classname}
-                onClick={() => this.routerDetailsPage(item.router)}
+                key={item.key}
+                onClick={() => this.routerOtherType(item.key)}
               >
-                <i className={item.classname} />
                 <p>{item.text}</p>
               </li>
             )

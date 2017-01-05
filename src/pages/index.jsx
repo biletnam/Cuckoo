@@ -18,6 +18,10 @@ import CinemaLineBoxoffice from './boxoffice/CinemaLineBoxoffice';
 import Schedules from './schedules';
 import News from './news/News';
 // import DateFilter from './schedules/DateFilter';
+import Production from './production';
+import Analysis from './production/analysis';
+import FilmRanking from './production/filmRanking';
+import ActorRanking from './production/actorRanking';
 import NotFound from './notfound';
 
 const logger = createLogger({
@@ -44,6 +48,11 @@ const Root = () => (
     </Route>
     <Route path="/schedules" component={Schedules} />
     <Route path="/news" component={News} />
+    <Route path="/production" component={Production}>
+      <IndexRoute component={Analysis} />
+      <Route path="/film-ranking" component={FilmRanking} />
+      <Route path="/actor-ranking" component={ActorRanking} />
+    </Route>
     <Route path="*" component={NotFound} />
   </Router>
 );
