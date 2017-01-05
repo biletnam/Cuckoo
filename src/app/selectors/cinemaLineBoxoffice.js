@@ -15,7 +15,7 @@ const getCinemaLineBoxoffice = state => {
     let dataSource = []
     data.forEach(item => {
       const dataSourceVaule = {
-        firstLine: item.cinemaLineShortName,
+        firstLine: item.cinemaLineName,
         secondLine: item.revShow,
         thirdLine: item.saledSeatShow,
         fourthLine: item.seatPerShowShow,
