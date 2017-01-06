@@ -9,9 +9,6 @@ function getBarOption(
     tooltip: {
       trigger: 'axis',
     },
-    legend: {
-      data: legendData
-    },
     xAxis: [
       {
         type: 'category',

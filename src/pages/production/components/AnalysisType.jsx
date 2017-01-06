@@ -38,7 +38,6 @@ class AnalysisType extends React.PureComponent {
   }
   render() {
     return (
-      <div className="analysis-type">
         <ul>
           {
             TYPE.map(item => 
@@ -46,12 +45,11 @@ class AnalysisType extends React.PureComponent {
                 key={item.key}
                 onClick={() => this.routerOtherType(item.type)}
               >
-                <p>{item.text}</p>
+                {item.text}
               </li>
             )
           }
         </ul>
-      </div>
     );
   }
 };

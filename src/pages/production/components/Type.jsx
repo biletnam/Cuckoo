@@ -27,7 +27,7 @@ class Type extends React.PureComponent {
   }
   render() {
     return (
-      <div className="type">
+      <div className="production-type">
         <ul>
           {
             TYPE.map(item => 

@@ -19,12 +19,10 @@ class AnalysisDetails extends React.PureComponent {
       <div>
         <div className="analysis-type">
           <p>类型:动作，喜剧</p>
-          <Button>筛选</Button>
+          <Button type='small'>筛选</Button>
         </div>
-        <div className="analysis-trend">
-          <p>月趋势:2016-01 至 2016-12</p>
-        </div>
-        <div>
+        <p className="analysis-trend">月趋势:2016-01 至 2016-12</p>
+        <div className="analysis-title">
           <p>电影票房量级分布</p>
           <p>(各票房量级影片数)</p>
           <p>影片数量(单位:部)</p>

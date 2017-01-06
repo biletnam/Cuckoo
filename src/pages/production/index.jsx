@@ -20,7 +20,7 @@ class Production extends React.Component {
           title="Cuckoo"
           back={false}
         />
-        <div>
+        <div className="production-details">
           <Type />
           { this.props.children }
         </div>
