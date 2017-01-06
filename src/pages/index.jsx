@@ -19,9 +19,9 @@ import Schedules from './schedules';
 import News from './news/News';
 // import DateFilter from './schedules/DateFilter';
 import Production from './production';
-import Analysis from './production/analysis';
-import FilmRanking from './production/filmRanking';
-import ActorRanking from './production/actorRanking';
+import Analysis from './production/Analysis/index';
+import FilmRanking from './production/FilmRanking/index';
+import CelebritiesRanking from './production/CelebritiesRanking/index';
 import NotFound from './notfound';
 
 const logger = createLogger({
@@ -51,7 +51,7 @@ const Root = () => (
     <Route path="/production" component={Production}>
       <IndexRoute component={Analysis} />
       <Route path="/film-ranking" component={FilmRanking} />
-      <Route path="/actor-ranking" component={ActorRanking} />
+      <Route path="/celebrities-ranking" component={CelebritiesRanking} />
     </Route>
     <Route path="*" component={NotFound} />
   </Router>
@@ -65,3 +65,4 @@ render(
   </Provider>,
   rootElement,
 );
+

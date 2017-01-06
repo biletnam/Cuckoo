@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import filmBoxoffice from './filmBoxoffice';
-import cinemaBoxoffice from './cinemaBoxoffice';
-import cinemaLineBoxoffice from './cinemaLineBoxoffice';
+import filmBoxoffice from './boxoffice/filmBoxoffice';
+import cinemaBoxoffice from './boxoffice/cinemaBoxoffice';
+import cinemaLineBoxoffice from './boxoffice/cinemaLineBoxoffice';
 import schedules from './schedules';
 import news from './news';
 import { routerReducer } from 'react-router-redux';

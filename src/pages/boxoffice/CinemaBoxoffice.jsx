@@ -3,7 +3,7 @@ import React from 'react';
 import { Table, Loading } from 'cuckoo-ui';
 import BoxofficeType from './components/BoxofficeType';
 
-import CinemaSelector from 'app/selectors/cinemaBoxoffice';
+import CinemaSelector from 'app/selectors/boxoffice/cinemaBoxoffice';
 
 import connect from 'utils/connect';
 import fecha from 'utils/fecha';

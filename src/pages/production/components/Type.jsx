@@ -2,7 +2,7 @@ import React from 'react';
 
 const TYPE = [
   {
-    key: 'analysis',
+    key: 'production',
     text: '类型分析',
   },
   {
@@ -10,7 +10,7 @@ const TYPE = [
     text: '电影排行',
   },
   {
-    key: 'actor-ranking',
+    key: 'celebrities-ranking',
     text: '影人排行',
   }
 ]
@@ -20,7 +20,7 @@ class Type extends React.PureComponent {
     router: React.PropTypes.object,
   }
 
-  routerDetailsPage(pathname) {
+  routerOtherType(pathname) {
     this.context.router.replace({
       pathname,
     });

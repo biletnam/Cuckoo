@@ -5,4 +5,7 @@ export const API = {
   AllMovieSchedules: 'api/GetAllMovieSchedules.api',
   newsList: 'new/news/list.api',
   date: 'new/common/getDate.api',
+  analysis: 'new/analysis/monthlyHistory.api',
+  filmRanking: 'new/analysis/movies.api',
+  actorRanking: 'new/analysis/celebrities.api',
 };

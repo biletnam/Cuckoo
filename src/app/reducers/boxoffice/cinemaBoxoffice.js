@@ -1,16 +1,17 @@
 import { handleActions } from 'redux-actions';
-import * as types from '../constants/ActionTypes';
+import * as types from 'app/constants/ActionTypes';
 
 const initialState = {
-  filmBoxoffice: {},
+  cinemaBoxoffice: {},
   loading: false,
 };
 
+
 const handler = {};
 
-handler[types.GET_MOVIE_REVENUES] = (state, action) => {
+handler[types.GET_CINEMA_REVENUES] = (state = initialState, action) => {
   return Object.assign({}, ...state, {
-    filmBoxoffice: action.filmBoxoffice,
+    cinemaBoxoffice: action.cinemaBoxoffice,
     loading: true,
   });
 };

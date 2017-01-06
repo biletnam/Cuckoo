@@ -12,3 +12,8 @@ export const GET_NEWS_DATA = 'GET_NEWS_DATA';
 
 // common 
 export const GET_DATE = 'GET_DATE';
+
+// production
+export const GET_ANALYSIS_DETAILS = 'GET_ANALYSIS_DETAILS';
+export const GET_CELEBRITIES_RANKING = 'GET_CELEBRITIES_RANKING';
+export const GET_FILM_RANKING = 'GET_FILM_RANKING';

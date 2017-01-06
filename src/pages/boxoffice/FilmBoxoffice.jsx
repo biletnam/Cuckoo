@@ -7,7 +7,7 @@ import TopList from './components/TopList';
 import TableType from './components/TableType';
 import BoxofficeType from './components/BoxofficeType';
 
-import FilmSelector from 'app/selectors/filmBoxoffice';
+import FilmSelector from 'app/selectors/boxoffice/filmBoxoffice';
 
 import connect from 'utils/connect';
 import fecha from 'utils/fecha';
