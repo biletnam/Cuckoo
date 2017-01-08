@@ -4,6 +4,7 @@ import cinemaBoxoffice from './boxoffice/cinemaBoxoffice';
 import cinemaLineBoxoffice from './boxoffice/cinemaLineBoxoffice';
 import schedules from './schedules';
 import news from './news';
+import analysis from './production/analysis';
 import { routerReducer } from 'react-router-redux';
 
 const rootReducer = combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   cinemaLine: cinemaLineBoxoffice,
   news,
   schedules,
+  analysis,
   routing: routerReducer,
 });
 

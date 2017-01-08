@@ -6,6 +6,12 @@ function getLineOption(
 ) {
   return {
     color: ['#48B892', '#EAFF51'],
+    grid: {
+      top: 15,
+      right: '10%',
+      left: '10%',
+      bottom: 25,
+    },
     tooltip: {
       trigger: 'axis',
     },
@@ -13,12 +19,21 @@ function getLineOption(
       {
         type: 'category',
         boundaryGap: false,
-        data: xData
+        data: xData,
+        axisTick: {
+            show: false,
+        },
       },
     ],
     yAxis: [
       {
         type: 'value',
+        axisTick: {
+            show: false,
+        },
+        axisLine: {
+            show: false,
+        },
       },
     ],
     series: [

@@ -1,19 +1,12 @@
-import { handleActions } from 'redux-actions';
-import * as types from '../constants/ActionTypes';
+import { createSelector } from 'reselect';
 
-const initialState = {
-  newsList: {},
-  loading: false,
-};
+const GetAnalysis = (state) => state.analysis
 
-const handler = {};
-
-handler[types.GET_NEWS_DATA] = (state, action) => {
-  return Object.assign({}, ...state, {
-    newsList: action.newsList,
-    proNewsType: action.proNewsType,
-    loading: true,
-  });
-};
-
-export default handleActions(handler, initialState);
+export default createSelector(
+  GetAnalysis,
+  (analysis) => {
+    return {
+      analysis,
+    };
+  },
+);

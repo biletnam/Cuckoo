@@ -9,7 +9,7 @@ function receiveAnalysisDetails(resp) {
   };
 }
 
-export function GetAnalysisDetails(date) {
+export function GetAnalysisDetails() {
   return (dispatch) => {
     const url = API.analysis;
     const data = {
@@ -34,7 +34,7 @@ function receiveFilmRanking(resp) {
   };
 }
 
-export function GetFilmRanking(date) {
+export function GetFilmRanking() {
   return (dispatch) => {
     const url = API.filmRanking;
     const data = {
@@ -59,7 +59,7 @@ function receiveCelebritiesRanking(resp) {
   };
 }
 
-export function GetCelebritiesRanking(date) {
+export function GetCelebritiesRanking() {
   return (dispatch) => {
     const url = API.analysis;
     const data = {

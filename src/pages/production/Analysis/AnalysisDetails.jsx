@@ -3,7 +3,7 @@ import React from 'react';
 import ReactEcharts from 'echarts-for-react';
 import { Button } from 'cuckoo-ui';
 
-import getOption from 'utils/analysis_chart_line';
+import getOption from 'utils/analysis_chart_bar';
 
 class AnalysisDetails extends React.PureComponent {
   constructor(props) {

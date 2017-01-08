@@ -3,13 +3,20 @@ import React from 'react';
 import AnalysisDetails from './AnalysisDetails';
 import AnalysisType from '../components/AnalysisType';
 
+import AnalysisSelector from 'app/selectors/production/analysis';
+
 import ReactEcharts from 'echarts-for-react';
 
 import getOption from 'utils/analysis_chart_line';
+import connect from 'utils/connect';
 
 class Analysis extends React.Component {
   constructor(props) {
     super(...props);
+  }
+
+  componentWillMount() {
+    this.props.actions.GetAnalysisDetails();
   }
   
   render() {
@@ -21,8 +28,10 @@ class Analysis extends React.Component {
     return (
       <div className="analysis">
         <AnalysisDetails />
+        <AnalysisType />
         <div className="analysis-details">
-          <AnalysisType />
+          <p>该类型的累计票房</p>
+          <p>累计票房(单位:亿)</p>
           <ReactEcharts
             className="chart-analysis-line"
             style={{ height: '170px' }}
@@ -34,4 +43,4 @@ class Analysis extends React.Component {
   }
 }
 
-export default Analysis;
+export default connect(Analysis, AnalysisSelector);
